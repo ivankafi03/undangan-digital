@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, FileText, Tag, Image, Settings, ExternalLink, ShoppingBag } from "lucide-react";
+import { LayoutDashboard, FileText, Tag, Image, Settings, ExternalLink, ShoppingBag, Bell } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,6 +16,7 @@ export function Sidebar({ onItemClick }: SidebarProps) {
         { name: "Pesanan", href: "/admin/pesanan", icon: ShoppingBag },
         { name: "Tambah Tema", href: "/admin/tambah", icon: FileText },
         { name: "Promo", href: "/admin/promo", icon: Image },
+        { name: "Broadcast", href: "/admin/broadcast", icon: Bell },
         { name: "Pengaturan", href: "/admin/setting", icon: Settings },
     ];
 
