@@ -22,8 +22,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             {/* Unified Top Header Bar */}
             <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/60 px-6 py-4 flex items-center justify-between shadow-sm">
                 <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center text-white text-xs font-black shadow-lg shadow-sky-200">
-                        ✨
+                    <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-slate-100 flex-shrink-0 bg-slate-50">
+                        <img 
+                            src="/658080585_18042732272580949_1176413146137522839_n.jpg" 
+                            alt="FikaDigi Logo" 
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                     <span className="text-xl font-black text-slate-900 tracking-tighter">
                         Fika<span className="text-sky-500">Digi</span> 

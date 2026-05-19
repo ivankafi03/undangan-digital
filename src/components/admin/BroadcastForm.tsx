@@ -59,31 +59,31 @@ export default function BroadcastForm({ initialSubscribers }: { initialSubscribe
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Form Column (Left 7 columns) */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-sm space-y-6">
-                <div className="flex items-center gap-3 border-b border-slate-100 pb-5">
-                    <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center">
-                        <Bell className="w-5 h-5 animate-bounce" />
+            <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-10 border border-slate-100 shadow-sm space-y-5">
+                <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center">
+                        <Bell className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
                     </div>
                     <div>
-                        <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">Formulir Push Broadcast</h2>
-                        <p className="text-xs text-slate-400 font-medium">Tulis pesan yang ingin Anda kirimkan ke HP/Laptop pelanggan.</p>
+                        <h2 className="text-base sm:text-xl font-extrabold text-slate-900">Formulir Push Broadcast</h2>
+                        <p className="text-[10px] sm:text-xs text-slate-400 font-medium">Tulis pesan yang ingin Anda kirimkan ke HP/Laptop pelanggan.</p>
                     </div>
                 </div>
 
                 {status && (
-                    <div className={`p-4 rounded-2xl flex items-start gap-3 border text-sm font-semibold ${
+                    <div className={`p-3.5 sm:p-4 rounded-xl sm:rounded-2xl flex items-start gap-3 border text-xs sm:text-sm font-semibold ${
                         status.success 
                             ? "bg-emerald-50 border-emerald-100 text-emerald-700" 
                             : "bg-rose-50 border-rose-100 text-rose-700"
                     }`}>
-                        {status.success ? <CheckCircle className="w-5 h-5 flex-shrink-0" /> : <AlertTriangle className="w-5 h-5 flex-shrink-0" />}
+                        {status.success ? <CheckCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5 flex-shrink-0" /> : <AlertTriangle className="w-4.5 h-4.5 sm:w-5 sm:h-5 flex-shrink-0" />}
                         <span>{status.text}</span>
                     </div>
                 )}
 
-                <form onSubmit={handleSend} className="space-y-5">
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 ml-1">Judul Notifikasi</label>
+                <form onSubmit={handleSend} className="space-y-4">
+                    <div className="space-y-1.5">
+                        <label className="text-xs sm:text-sm font-bold text-slate-700 ml-1">Judul Notifikasi</label>
                         <input
                             type="text"
                             required
@@ -91,12 +91,12 @@ export default function BroadcastForm({ initialSubscribers }: { initialSubscribe
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="Contoh: PROMO SPESIAL!"
-                            className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-semibold text-sm"
+                            className="w-full px-4 py-2.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-semibold text-xs sm:text-sm"
                         />
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 ml-1">Isi Pesan Notifikasi</label>
+                    <div className="space-y-1.5">
+                        <label className="text-xs sm:text-sm font-bold text-slate-700 ml-1">Isi Pesan Notifikasi</label>
                         <textarea
                             required
                             maxLength={150}
@@ -104,38 +104,38 @@ export default function BroadcastForm({ initialSubscribers }: { initialSubscribe
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             placeholder="Tulis detail promosi yang menarik..."
-                            className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-medium text-sm resize-none"
+                            className="w-full px-4 py-2.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-medium text-xs sm:text-sm h-20 sm:h-24 resize-none"
                         />
                         <div className="flex justify-end">
-                            <span className="text-[10px] text-slate-400 font-bold">{message.length}/150 karakter</span>
+                            <span className="text-[9px] sm:text-[10px] text-slate-400 font-bold">{message.length}/150 karakter</span>
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 ml-1">Tautan Tujuan (URL)</label>
+                    <div className="space-y-1.5">
+                        <label className="text-xs sm:text-sm font-bold text-slate-700 ml-1">Tautan Tujuan (URL)</label>
                         <input
                             type="text"
                             required
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
                             placeholder="Contoh: /#katalog atau link tema spesifik"
-                            className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-semibold text-sm"
+                            className="w-full px-4 py-2.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-sky-500 transition text-slate-700 font-semibold text-xs sm:text-sm"
                         />
                     </div>
 
                     <button
                         type="submit"
                         disabled={loading || initialSubscribers === 0}
-                        className="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-lg hover:bg-sky-500 hover:shadow-sky-500/10 transition duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:hover:bg-slate-900 disabled:pointer-events-none"
+                        className="w-full py-2.5 sm:py-4 bg-slate-900 text-white rounded-xl sm:rounded-2xl font-bold shadow-lg hover:bg-sky-500 hover:shadow-sky-500/10 transition duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-xs sm:text-sm disabled:opacity-50 disabled:hover:bg-slate-900 disabled:pointer-events-none"
                     >
                         {loading ? (
                             <>
-                                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                                 Sedang Mengirim...
                             </>
                         ) : (
                             <>
-                                <Send className="w-4 h-4" />
+                                <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 Kirim Broadcast Sekarang
                             </>
                         )}

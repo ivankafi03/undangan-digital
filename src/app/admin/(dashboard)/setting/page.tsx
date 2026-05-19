@@ -14,102 +14,102 @@ export default async function SettingPage() {
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">Konfigurasi kontak, sosial media, dan fitur website FikaDigi.</p>
             </div>
 
-            <form action={updateSetting} className="space-y-8 sm:space-y-12">
+            <form action={updateSetting} className="space-y-6 sm:space-y-8">
                 {/* Kontak & Komunikasi */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
-                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center">
-                            <MessageCircle className="w-5 h-5" />
+                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center">
+                            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <h2 className="text-lg sm:text-xl">Kontak & Komunikasi</h2>
+                        <h2 className="text-base sm:text-xl">Kontak & Komunikasi</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Phone className="w-4 h-4 text-green-500"/> No. WhatsApp Admin</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-green-500"/> No. WhatsApp Admin</label>
                             <input
                                 type="text"
                                 name="nomor_wa"
                                 required
                                 defaultValue={setting?.nomor_wa || "628123456789"}
                                 placeholder="628123456789"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Mail className="w-4 h-4 text-rose-500"/> Email Kontak</label>
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-rose-500"/> Email Kontak</label>
                             <input
                                 type="email"
                                 name="email"
                                 defaultValue={setting?.email || ""}
                                 placeholder="halo@fikadigi.store"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
                     </div>
 
-                    <div className="mt-6 space-y-2">
-                        <label className="text-sm font-bold text-slate-700">Template Pesan WhatsApp</label>
-                        <p className="text-xs text-slate-500 mb-2">Gunakan placeholder: [TEMA], [HARGA].</p>
+                    <div className="mt-4 sm:mt-6 space-y-1.5">
+                        <label className="text-xs sm:text-sm font-bold text-slate-700">Template Pesan WhatsApp</label>
+                        <p className="text-[10px] sm:text-xs text-slate-500 mb-1.5">Gunakan placeholder: [TEMA], [HARGA].</p>
                         <textarea
                             name="waTemplate"
                             rows={5}
-                            defaultValue={setting?.waTemplate || "Halo FikaDigi, saya ingin memesan tema undangan digital berikut:\n\n📋 *DETAIL PESANAN*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n✦ *Tema:* [TEMA]\n✦ *Harga:* [HARGA]\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nMohon info untuk langkah selanjutnya ya. Terima kasih!"}
+                            defaultValue={setting?.waTemplate || "Halo FikaDigi, saya ingin memesan tema undangan digital berikut:\n\n*DETAIL PESANAN*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n*Tema:* [TEMA]\n*Harga:* [HARGA]\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nMohon info untuk langkah selanjutnya ya. Terima kasih!"}
                             placeholder="Ketik template pesan WhatsApp di sini..."
-                            className="w-full px-5 py-4 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all font-medium text-sm leading-relaxed"
+                            className="w-full px-4 py-2.5 sm:px-5 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all font-medium text-xs sm:text-sm leading-relaxed"
                         />
                     </div>
                 </div>
 
                 {/* Sosial Media */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
-                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center">
-                            <Instagram className="w-5 h-5" />
+                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center">
+                            <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <h2 className="text-lg sm:text-xl">Sosial Media</h2>
+                        <h2 className="text-base sm:text-xl">Sosial Media</h2>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-500 mb-6">Kosongkan link jika Anda tidak ingin memunculkan logo sosmed tersebut di website.</p>
+                    <p className="text-[10px] sm:text-xs text-slate-500 mb-4 sm:mb-6">Kosongkan link jika Anda tidak ingin memunculkan logo sosmed tersebut di website.</p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Instagram className="w-4 h-4 text-pink-500"/> Instagram</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Instagram className="w-3.5 h-3.5 text-pink-500"/> Instagram</label>
                             <input
                                 type="url"
                                 name="instagram"
                                 defaultValue={setting?.instagram || ""}
                                 placeholder="https://instagram.com/fikadigi"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-sm font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Facebook className="w-4 h-4 text-blue-600"/> Facebook</label>
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Facebook className="w-3.5 h-3.5 text-blue-600"/> Facebook</label>
                             <input
                                 type="url"
                                 name="facebook"
                                 defaultValue={setting?.facebook || ""}
                                 placeholder="https://facebook.com/fikadigi"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-sm font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Presentation className="w-4 h-4 text-slate-900"/> TikTok</label>
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Presentation className="w-3.5 h-3.5 text-slate-900"/> TikTok</label>
                             <input
                                 type="url"
                                 name="tiktok"
                                 defaultValue={setting?.tiktok || ""}
                                 placeholder="https://tiktok.com/@fikadigi"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-sm font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700 flex items-center gap-2"><Youtube className="w-4 h-4 text-red-500"/> YouTube</label>
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5"><Youtube className="w-3.5 h-3.5 text-red-500"/> YouTube</label>
                             <input
                                 type="url"
                                 name="youtube"
                                 defaultValue={setting?.youtube || ""}
                                 placeholder="https://youtube.com/@fikadigi"
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-sm font-semibold"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-semibold text-slate-700"
                             />
                         </div>
                     </div>
@@ -117,41 +117,41 @@ export default async function SettingPage() {
 
                 {/* Banner Promo */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
-                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
-                        <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center">
-                            <Megaphone className="w-5 h-5" />
+                    <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center">
+                            <Megaphone className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
-                        <h2 className="text-lg sm:text-xl">Banner Pengumuman (Header)</h2>
+                        <h2 className="text-base sm:text-xl">Banner Pengumuman (Header)</h2>
                     </div>
 
-                    <div className="space-y-6">
-                        <label className="flex items-center gap-3 cursor-pointer p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div className="space-y-4 sm:space-y-6">
+                        <label className="flex items-center gap-3 cursor-pointer p-3 sm:p-4 bg-slate-50 rounded-xl sm:rounded-2xl border border-slate-200">
                             <div className="relative">
                                 <input type="checkbox" name="showPromo" value="true" defaultChecked={setting?.showPromo} className="sr-only peer" />
-                                <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                <div className="w-9 h-5 sm:w-11 sm:h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 sm:after:h-5 sm:after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                             </div>
-                            <span className="text-sm font-bold text-slate-700">Tampilkan Banner Promo di Website</span>
+                            <span className="text-xs sm:text-sm font-bold text-slate-700">Tampilkan Banner Promo di Website</span>
                         </label>
 
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-slate-700">Teks Banner Promo</label>
+                        <div className="space-y-1.5">
+                            <label className="text-xs sm:text-sm font-bold text-slate-700">Teks Banner Promo</label>
                             <input
                                 type="text"
                                 name="promoBanner"
-                                defaultValue={setting?.promoBanner || "🎉 DISKON 50% UNTUK 10 PEMBELI PERTAMA HARI INI!"}
+                                defaultValue={setting?.promoBanner || "DISKON 50% UNTUK 10 PEMBELI PERTAMA HARI INI!"}
                                 placeholder="Ketik promo kilat Anda di sini..."
-                                className="w-full px-5 py-3.5 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-sm font-bold text-slate-700"
+                                className="w-full px-4 py-2.5 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all text-xs sm:text-sm font-bold text-slate-700"
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className="pt-4 pb-10">
+                <div className="pt-2 pb-10">
                     <button
                         type="submit"
-                        className="flex items-center justify-center gap-2.5 w-full py-4 sm:py-5 bg-slate-900 text-white rounded-2xl sm:rounded-3xl font-bold shadow-xl hover:bg-sky-500 transition transform hover:-translate-y-1 text-base sm:text-lg"
+                        className="flex items-center justify-center gap-2 w-full py-3 sm:py-5 bg-slate-900 text-white rounded-xl sm:rounded-3xl font-bold shadow-xl hover:bg-sky-500 transition transform hover:-translate-y-1 text-xs sm:text-lg"
                     >
-                        <Save className="w-5 h-5" />
+                        <Save className="w-4 h-4 sm:w-5 sm:h-5" />
                         Simpan Semua Pengaturan
                     </button>
                 </div>

@@ -25,10 +25,10 @@ export default async function PromoPage() {
                             <Plus className="w-5 h-5" />
                             Tambah Promo
                         </h2>
-                        <form action={savePromo} className="space-y-5">
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-slate-700 ml-1 text-slate-400">Pilih File Gambar</label>
-                                <div className="relative group border-2 border-dashed border-slate-200 rounded-2xl p-4 hover:border-purple-400 transition-all text-center">
+                        <form action={savePromo} className="space-y-4">
+                            <div className="space-y-1.5">
+                                <label className="text-xs sm:text-sm font-bold text-slate-700 ml-1 text-slate-400">Pilih File Gambar</label>
+                                <div className="relative group border-2 border-dashed border-slate-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 hover:border-purple-400 transition-all text-center">
                                     <input
                                         type="file"
                                         name="gambar_file"
@@ -36,23 +36,23 @@ export default async function PromoPage() {
                                         required
                                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                     />
-                                    <div className="flex flex-col items-center gap-2">
-                                        <Upload className="w-8 h-8 text-slate-300 group-hover:text-purple-500 transition" />
-                                        <span className="text-xs font-bold text-slate-400 group-hover:text-purple-600 transition">Klik untuk upload gambar</span>
+                                    <div className="flex flex-col items-center gap-1.5">
+                                        <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-slate-300 group-hover:text-purple-500 transition" />
+                                        <span className="text-[10px] sm:text-xs font-bold text-slate-400 group-hover:text-purple-600 transition">Klik untuk upload gambar</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-slate-700 ml-1">Keterangan (Opsional)</label>
+                            <div className="space-y-1.5">
+                                <label className="text-xs sm:text-sm font-bold text-slate-700 ml-1">Keterangan (Opsional)</label>
                                 <textarea
                                     name="keterangan"
                                     placeholder="Promo Diskon 50%..."
-                                    className="w-full px-6 py-4 rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-purple-500 transition-all text-slate-700 font-medium h-24 resize-none"
+                                    className="w-full px-4 py-2.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 focus:outline-none focus:border-purple-500 transition-all text-slate-700 font-medium h-20 sm:h-24 resize-none text-xs sm:text-sm"
                                 />
                             </div>
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold shadow-lg hover:bg-slate-800 transition transform hover:-translate-y-0.5"
+                                className="w-full py-2.5 sm:py-4 bg-slate-900 text-white rounded-xl sm:rounded-2xl font-bold shadow-lg hover:bg-slate-800 transition transform hover:-translate-y-0.5 text-xs sm:text-base"
                             >
                                 Simpan Promo
                             </button>
