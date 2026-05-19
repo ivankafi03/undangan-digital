@@ -64,10 +64,18 @@ export default function OrderStep() {
                                     <div 
                                         key={step.id}
                                         onClick={() => setActiveStep(step.id)}
-                                        className={`flex items-start gap-3 sm:gap-5 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 ${
+                                        className={`relative overflow-hidden flex items-start gap-3 sm:gap-5 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 ${
                                             isActive ? "bg-white shadow-xl shadow-sky-500/5 border border-sky-100 scale-[1.02]" : "hover:bg-gray-50"
                                         }`}
                                     >
+                                        {/* Background Batik for Active Step Card */}
+                                        {isActive && (
+                                            <>
+                                                <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+                                                <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-transparent z-0"></div>
+                                            </>
+                                        )}
+
                                         <div className={`w-9 h-9 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2 sm:border-4 border-[#FAFAFA] transition-colors duration-500 z-10 ${
                                             isActive ? "bg-sky-500 text-white shadow-md shadow-sky-500/30" : 
                                             isPast ? "bg-gray-900 text-white" : "bg-white text-gray-400 border-gray-100"
@@ -75,7 +83,7 @@ export default function OrderStep() {
                                             <span className="text-sm sm:text-lg font-bold">{step.id}</span>
                                         </div>
                                         
-                                        <div className="pt-1 sm:pt-2">
+                                        <div className="pt-1 sm:pt-2 z-10 relative">
                                             <h3 className={`text-sm sm:text-xl font-bold mb-1 sm:mb-2 transition-colors ${isActive ? "text-gray-900" : "text-gray-500"}`}>
                                                 {step.title}
                                             </h3>
@@ -110,8 +118,8 @@ export default function OrderStep() {
                                 className="bg-white rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative group"
                             >
                                 {/* Background Batik Pattern */}
-                                <div className="absolute inset-0 z-0 opacity-[0.35] bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }}></div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent z-0"></div>
+                                <div className="absolute inset-0 z-0 opacity-[0.7] bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }}></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/60 to-transparent z-0"></div>
 
                                 <div className="relative z-10">
                                     <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center mb-4 sm:mb-8 shadow-inner [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-8 sm:[&>svg]:h-8">
