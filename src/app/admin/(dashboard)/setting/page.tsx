@@ -18,9 +18,6 @@ export default async function SettingPage() {
                 {/* Kontak & Komunikasi */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center">
-                            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </div>
                         <h2 className="text-base sm:text-xl">Kontak & Komunikasi</h2>
                     </div>
 
@@ -64,9 +61,6 @@ export default async function SettingPage() {
                 {/* Sosial Media */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center">
-                            <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </div>
                         <h2 className="text-base sm:text-xl">Sosial Media</h2>
                     </div>
                     <p className="text-[10px] sm:text-xs text-slate-500 mb-4 sm:mb-6">Kosongkan link jika Anda tidak ingin memunculkan logo sosmed tersebut di website.</p>
@@ -118,9 +112,6 @@ export default async function SettingPage() {
                 {/* Banner Promo */}
                 <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-4 sm:mb-6">
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center">
-                            <Megaphone className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </div>
                         <h2 className="text-base sm:text-xl">Banner Pengumuman (Header)</h2>
                     </div>
 

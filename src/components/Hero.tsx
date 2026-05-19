@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 export default function Hero({ waNumber }: { waNumber: string }) {
     return (
-        <section id="home" className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden bg-white min-h-[85vh] flex flex-col items-center">
+        <section id="home" className="relative pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden bg-white min-h-[85vh] flex flex-col items-center">
             {/* Elegant Top Glow - High Performance CSS */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-100/60 via-transparent to-transparent pointer-events-none" />
             
-            <div className="relative max-w-5xl mx-auto px-5 lg:px-8 flex flex-col items-center text-center z-10 w-full mt-8 md:mt-12">
+            <div className="relative max-w-5xl mx-auto px-5 lg:px-8 flex flex-col items-center text-center z-10 w-full mt-2 md:mt-4">
                 
                 {/* Ultra-minimalist Badge */}
                 <motion.div 
