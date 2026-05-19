@@ -189,9 +189,9 @@ export default async function AdminDashboard() {
                     </div>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-4xl">
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 w-full">
                     {temas.map((tema) => (
-                        <div key={tema.id} className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between max-w-[280px] mx-auto w-full">
+                        <div key={tema.id} className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between w-full">
                             {/* Gambar */}
                             <div className="relative aspect-[16/11] overflow-hidden bg-slate-50 flex-shrink-0">
                                 <img
@@ -200,16 +200,16 @@ export default async function AdminDashboard() {
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
                                 {tema.harga_diskon && (
-                                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-red-500 text-white text-[8px] font-bold rounded-full uppercase tracking-wider">
+                                    <div className="absolute top-1 left-1 sm:top-2 sm:left-2 px-1.5 py-0.5 sm:px-2 sm:py-0.5 bg-red-500 text-white text-[6px] sm:text-[8px] font-bold rounded-full uppercase tracking-wider">
                                         PROMO
                                     </div>
                                 )}
                                 {/* Aksi Hover */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2.5 gap-2">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-2.5 gap-1.5 sm:gap-2">
                                     <a
                                         href={tema.link_demo}
                                         target="_blank"
-                                        className="flex-1 py-1.5 bg-white text-slate-900 text-[9.5px] font-bold uppercase tracking-wider text-center rounded-lg hover:bg-slate-100 transition-colors"
+                                        className="flex-1 py-1 sm:py-1.5 bg-white text-slate-900 text-[8px] sm:text-[9.5px] font-bold uppercase tracking-wider text-center rounded-lg hover:bg-slate-100 transition-colors"
                                     >
                                         Live Preview
                                     </a>
@@ -217,31 +217,31 @@ export default async function AdminDashboard() {
                             </div>
 
                             {/* Detail */}
-                            <div className="p-3.5 flex-1 flex flex-col justify-between">
+                            <div className="p-2 sm:p-3.5 flex-1 flex flex-col justify-between">
                                 <div>
-                                    <p className="text-xs font-black text-slate-900 truncate group-hover:text-blue-600 transition-colors">{tema.nama_tema}</p>
-                                    <p className="text-[8.5px] font-bold text-slate-400 mt-0.5 uppercase tracking-widest">{tema.kategori || "Premium"}</p>
+                                    <p className="text-[10px] sm:text-xs font-black text-slate-900 truncate group-hover:text-blue-600 transition-colors">{tema.nama_tema}</p>
+                                    <p className="text-[7.5px] sm:text-[8.5px] font-bold text-slate-400 mt-0.5 uppercase tracking-widest">{tema.kategori || "Premium"}</p>
                                 </div>
                                 
-                                <div className="mt-2">
-                                    <div className="flex items-baseline gap-1">
-                                        <span className="text-xs sm:text-sm font-black text-slate-900">{formatPrice(tema.harga_diskon ?? tema.harga_asli)}</span>
+                                <div className="mt-1.5 sm:mt-2">
+                                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1">
+                                        <span className="text-[10px] sm:text-xs md:text-sm font-black text-slate-900">{formatPrice(tema.harga_diskon ?? tema.harga_asli)}</span>
                                         {tema.harga_diskon && (
-                                            <span className="text-[8.5px] sm:text-[9.5px] text-slate-400 line-through">{formatPrice(tema.harga_asli)}</span>
+                                            <span className="text-[7.5px] sm:text-[8.5px] md:text-[9.5px] text-slate-400 line-through">{formatPrice(tema.harga_asli)}</span>
                                         )}
                                     </div>
 
                                     {/* Tombol Aksi Bawah */}
-                                    <div className="flex gap-2 mt-3 pt-2.5 border-t border-slate-100">
+                                    <div className="flex gap-1.5 sm:gap-2 mt-2 sm:mt-3 pt-2 sm:pt-2.5 border-t border-slate-100">
                                         <Link
                                             href={`/admin/edit/${tema.id}`}
-                                            className="flex-1 flex items-center justify-center gap-1 py-1.5 bg-slate-50 text-slate-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all text-[9.5px] font-bold"
+                                            className="flex-1 flex items-center justify-center gap-1 py-1 sm:py-1.5 bg-slate-50 text-slate-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all text-[8px] sm:text-[9.5px] font-bold"
                                         >
-                                            <Edit2 className="w-3 h-3" /> Edit
+                                            <Edit2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> <span className="hidden sm:inline">Edit</span>
                                         </Link>
                                         <form action={deleteTema.bind(null, tema.id)} className="flex-1">
-                                            <button className="w-full flex items-center justify-center gap-1 py-1.5 bg-red-50 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all text-[9.5px] font-bold">
-                                                <Trash2 className="w-3 h-3" /> Hapus
+                                            <button className="w-full flex items-center justify-center gap-1 py-1 sm:py-1.5 bg-red-50 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-all text-[8px] sm:text-[9.5px] font-bold">
+                                                <Trash2 className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> <span className="hidden sm:inline">Hapus</span>
                                             </button>
                                         </form>
                                     </div>
