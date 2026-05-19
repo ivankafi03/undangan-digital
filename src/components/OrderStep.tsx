@@ -71,7 +71,7 @@ export default function OrderStep() {
                                         {/* Background Batik for Active Step Card */}
                                         {isActive && (
                                             <>
-                                                <div className="absolute inset-0 z-0 opacity-[0.6] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+                                                <div className="absolute inset-0 z-0 opacity-[0.8] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
                                                 <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/80 to-transparent z-0"></div>
                                             </>
                                         )}
@@ -118,7 +118,7 @@ export default function OrderStep() {
                                 className="bg-white rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative group"
                             >
                                 {/* Background Batik Pattern */}
-                                <div className="absolute inset-0 z-0 opacity-[0.7] bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }}></div>
+                                <div className="absolute inset-0 z-0 opacity-[0.8] bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }}></div>
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/60 to-transparent z-0"></div>
 
                                 <div className="relative z-10">

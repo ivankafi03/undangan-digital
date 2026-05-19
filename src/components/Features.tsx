@@ -73,20 +73,20 @@ export default function Features() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                    className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6"
                 >
                     {features.map((f, i) => (
                         <motion.div 
                             key={i} 
                             variants={itemVariants}
                             whileHover={{ y: -5 }}
-                            className="group relative bg-[#FAFAFA] rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
+                            className="group relative bg-[#FAFAFA] rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
                         >
-                            <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-2 sm:mb-6 group-hover:scale-110 transition-transform [&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-6 sm:[&>svg]:h-6">
+                            <div className="w-7 h-7 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-1.5 sm:mb-6 group-hover:scale-110 transition-transform [&>svg]:w-3.5 [&>svg]:h-3.5 sm:[&>svg]:w-6 sm:[&>svg]:h-6">
                                 {f.icon}
                             </div>
-                            <h3 className="text-sm sm:text-xl font-bold text-gray-900 mb-1 sm:mb-3">{f.title}</h3>
-                            <p className="text-gray-500 text-[11px] sm:text-sm leading-relaxed">{f.desc}</p>
+                            <h3 className="text-xs sm:text-lg font-bold text-gray-900 mb-1 sm:mb-3">{f.title}</h3>
+                            <p className="text-gray-500 text-[10px] sm:text-sm leading-snug sm:leading-relaxed">{f.desc}</p>
                         </motion.div>
                     ))}
                 </motion.div>
