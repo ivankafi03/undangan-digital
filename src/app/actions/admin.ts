@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import fs from "fs/promises";
 import path from "path";
 
@@ -91,6 +92,11 @@ export async function updateSetting(formData: FormData) {
 // TRAFFIC TRACKING
 export async function trackVisit() {
     try {
+        const cookieStore = await cookies();
+        if (cookieStore.has("admin_session")) {
+            return;
+        }
+
         const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
         await prisma.pageVisit.upsert({
             where: { date: today },

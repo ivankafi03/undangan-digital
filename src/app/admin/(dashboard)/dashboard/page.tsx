@@ -114,7 +114,7 @@ export default async function AdminDashboard() {
                     <div>
                         <p className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kunjungan Hari Ini</p>
                         <h3 className="text-base sm:text-2xl font-extrabold text-slate-900 mt-0.5">
-                            {todayViews} <span className="text-[10px] sm:text-xs font-semibold text-slate-400">({totalViews} total)</span>
+                            {todayViews}
                         </h3>
                     </div>
                 </div>
