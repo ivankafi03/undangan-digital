@@ -203,28 +203,32 @@ export default function Catalog({ temas, waNumber, setting }: { temas: Tema[], w
                 {/* MODAL (Refined styling) */}
                 <AnimatePresence>
                 {selected && (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
                         className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-gray-900/40 backdrop-blur-md"
                         onClick={handleCloseModal}
                     >
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            initial={{ opacity: 0, scale: 0.95, y: 15 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            transition={{ duration: 0.3, type: "spring", damping: 25 }}
-                            className="relative bg-[#FAFAFA] w-full max-w-4xl rounded-2xl sm:rounded-[3rem] overflow-hidden flex flex-col md:flex-row max-h-[92vh] sm:max-h-[95vh] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]"
+                            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+                            transition={{ duration: 0.15, ease: "easeOut" }}
+                            className="relative bg-[#FAFAFA] w-full max-w-2xl rounded-2xl sm:rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row max-h-[92vh] sm:max-h-[95vh] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Complex Kawung Batik Watermark (Full Modal) */}
-                            <div className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+                            <div className="absolute inset-0 z-0 opacity-[0.8] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
 
                             {/* Modal Image (Top on mobile, Left on desktop) */}
                             <div className="w-full md:w-1/2 p-2 block relative z-10">
-                                <div className="w-full h-40 sm:h-48 md:h-full bg-gray-100 rounded-xl md:rounded-[2.5rem] overflow-hidden relative shadow-inner">
+                                <div className="w-full h-80 sm:h-96 md:h-full bg-gray-100 rounded-xl md:rounded-[2rem] overflow-hidden relative shadow-inner">
                                     <img
                                         src={selected.gambar.startsWith('http') ? selected.gambar : `/storage/${selected.gambar}`}
                                         alt={selected.nama_tema}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover object-top"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-4 md:p-8">
                                         <a
@@ -239,7 +243,7 @@ export default function Catalog({ temas, waNumber, setting }: { temas: Tema[], w
                             </div>
 
                             {/* Modal Content */}
-                            <div className="flex-1 p-5 sm:p-8 md:p-12 flex flex-col overflow-y-auto relative bg-transparent z-10">
+                            <div className="flex-1 p-4 sm:p-6 md:p-8 flex flex-col overflow-y-auto relative bg-transparent z-10">
                                 <div className="relative z-10 flex flex-col h-full">
                                     <button
                                         onClick={handleCloseModal}
@@ -248,17 +252,17 @@ export default function Catalog({ temas, waNumber, setting }: { temas: Tema[], w
                                         <X className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </button>
 
-                                    <div className="mb-4 sm:mb-8 pr-10 sm:pr-12 pt-1 sm:pt-4">
+                                    <div className="mb-2 sm:mb-4 pr-10 sm:pr-12 pt-1 sm:pt-4">
                                         <span className="inline-block px-3 py-1 bg-sky-100 text-sky-700 text-[8px] sm:text-[10px] font-black rounded-full uppercase tracking-widest mb-2 sm:mb-4 border border-sky-200/50 shadow-sm">
                                             {selected.kategori}
                                         </span>
-                                        <h3 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-600 mb-1 sm:mb-3 tracking-tight leading-none drop-shadow-sm">{selected.nama_tema}</h3>
+                                        <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-600 mb-1 sm:mb-3 tracking-tight leading-none drop-shadow-sm">{selected.nama_tema}</h3>
                                     </div>
 
-                                <div className="mb-4 sm:mb-10 py-3 sm:py-6 border-y border-gray-100">
-                                    <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-3">Harga Spesial</p>
+                                <div className="mb-3 sm:mb-6 py-2 sm:py-4 border-y border-gray-100">
+                                    <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 sm:mb-2">Harga Spesial</p>
                                     <div className="flex items-baseline gap-2 sm:gap-4">
-                                        <span className="text-2xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
+                                        <span className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
                                             {formatPrice(hargaAktif(selected))}
                                         </span>
                                         {selected.harga_diskon && (
@@ -347,7 +351,7 @@ export default function Catalog({ temas, waNumber, setting }: { temas: Tema[], w
                                 </div>
                             </div>
                         </motion.div>
-                    </div>
+                    </motion.div>
                 )}
                 </AnimatePresence>
             </div>
