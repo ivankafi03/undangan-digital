@@ -16,7 +16,9 @@ export default function PromoSection({ promo, waNumber }: { promo: Promo, waNumb
         <section id="promo" className="py-12 bg-white relative">
             <div className="max-w-6xl mx-auto px-5 lg:px-8">
                 <motion.a
-                    href={`https://wa.me/${waNumber || "628123456789"}?text=Halo%20FikaDigi%2C%20saya%20ingin%20klaim%20promo%20ini!`}
+                    href={`https://wa.me/${waNumber || "628123456789"}?text=${encodeURIComponent(
+                        `Halo FikaDigi, saya ingin mengklaim promo spesial berikut:\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎁 KLAIM PROMO\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n✦ Detail: ${promo.keterangan || "Promo Spesial FikaDigi"}\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nMohon arahan selengkapnya ya. Terima kasih!`
+                    )}`}
                     target="_blank"
                     className="block group relative rounded-[32px] overflow-hidden shadow-2xl shadow-sky-900/5"
                     initial={{ opacity: 0, y: 30 }}

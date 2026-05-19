@@ -58,7 +58,19 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
         setLoading(false);
         
         if (res.success) {
-            const text = `Halo FikaDigi, saya mau pesan tema *${encodeURIComponent(selected.nama_tema)}* 🌟\nHarga: ${encodeURIComponent(formatPrice(harga))}\n\nNama: ${encodeURIComponent(nama)}\nNo. WA: ${encodeURIComponent(noWa)}\n\nMohon info selanjutnya, terima kasih!`;
+            const message = `Halo FikaDigi, saya ingin memesan tema undangan digital berikut:
+
+📋 *DETAIL PESANAN*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+✦ *Tema:* ${selected.nama_tema}
+✦ *Harga:* ${formatPrice(harga)}
+✦ *Nama Pelanggan:* ${nama}
+✦ *No. WhatsApp:* ${noWa}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Mohon info untuk langkah selanjutnya ya. Terima kasih!`;
+
+            const text = encodeURIComponent(message);
             window.open(`https://wa.me/${waNumber}?text=${text}`, "_blank");
             
             setIsOrdering(false);

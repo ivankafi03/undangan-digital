@@ -60,7 +60,9 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                     <a
-                        href={`https://wa.me/${waNumber}`}
+                        href={`https://wa.me/${waNumber}?text=${encodeURIComponent(
+                            "Halo FikaDigi, saya ingin berkonsultasi mengenai pembuatan undangan digital premium. Mohon info selengkapnya ya. Terima kasih!"
+                        )}`}
                         target="_blank"
                         className="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-white border border-gray-200 text-[#111111] text-sm sm:text-base font-semibold rounded-full hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 shadow-sm"
                     >

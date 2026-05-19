@@ -39,7 +39,9 @@ export default function CTA({ waNumber }: { waNumber: string }) {
                     <motion.a
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        href={`https://wa.me/${waNumber}?text=Halo%20FikaDigi%2C%20saya%20siap%20memesan%20undangan%20digital!`}
+                        href={`https://wa.me/${waNumber}?text=${encodeURIComponent(
+                            "Halo FikaDigi, saya ingin berkonsultasi dan memesan undangan digital premium. Mohon informasi selengkapnya ya. Terima kasih!"
+                        )}`}
                         target="_blank"
                         className="group flex items-center justify-center gap-2 px-10 py-5 bg-sky-500 text-white text-base font-bold rounded-2xl hover:bg-sky-400 transition-colors shadow-[0_0_30px_rgba(14,165,233,0.3)] w-full sm:w-auto"
                     >
