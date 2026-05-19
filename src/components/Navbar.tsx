@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles, Megaphone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ waNumber, setting }: { waNumber: string, setting?: any }) {
     const [open, setOpen] = useState(false);
@@ -74,31 +75,50 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
             </nav>
 
             {/* Mobile Menu */}
-            {open && (
-                <div className={`fixed inset-0 z-40 bg-white/90 backdrop-blur-2xl flex flex-col ${showPromo ? "pt-32" : "pt-24"} px-6 animate-in fade-in slide-in-from-top-4 duration-300`}>
-                    <div className="flex flex-col gap-2">
-                        {links.map(l => (
-                            <a
-                                key={l.label}
-                                href={l.href}
+            <AnimatePresence>
+                {open && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl flex flex-col ${showPromo ? "pt-32" : "pt-24"} px-6 overflow-hidden`}
+                    >
+                        {/* Background Batik Motif 80% Opacity */}
+                        <div className="absolute inset-0 z-0 opacity-[0.8] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+                        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-white/95 z-0" />
+
+                        <div className="flex flex-col gap-2 relative z-10">
+                            {links.map((l, index) => (
+                                <motion.a
+                                    key={l.label}
+                                    href={l.href}
+                                    onClick={() => setOpen(false)}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.05 + 0.1, duration: 0.4, ease: "easeOut" }}
+                                    className="py-4 text-2xl font-bold text-[#111111] border-b border-gray-100 flex items-center justify-between group"
+                                >
+                                    <span className="group-hover:text-sky-500 transition-colors duration-300">{l.label}</span>
+                                    <span className="text-[#0EA5E9] text-lg opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 duration-300">→</span>
+                                </motion.a>
+                            ))}
+                            <motion.a
+                                href={`https://wa.me/${waNumber}`}
+                                target="_blank"
                                 onClick={() => setOpen(false)}
-                                className="py-4 text-2xl font-bold text-[#111111] border-b border-[#F3F4F6] flex items-center justify-between group"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: links.length * 0.05 + 0.15, duration: 0.4, type: "spring", stiffness: 200 }}
+                                className="mt-8 py-4 text-center bg-gradient-to-r from-sky-500 to-blue-600 text-white text-base font-bold rounded-full shadow-lg shadow-sky-500/20 hover:shadow-sky-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
                             >
-                                {l.label}
-                                <span className="text-[#0EA5E9] text-sm opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">→</span>
-                            </a>
-                        ))}
-                        <a
-                            href={`https://wa.me/${waNumber}`}
-                            target="_blank"
-                            onClick={() => setOpen(false)}
-                            className="mt-8 py-4 text-center bg-[#111111] text-white text-base font-medium rounded-full shadow-lg"
-                        >
-                            Konsultasi via WhatsApp
-                        </a>
-                    </div>
-                </div>
-            )}
+                                <Sparkles className="w-5 h-5 animate-pulse" />
+                                Konsultasi via WhatsApp
+                            </motion.a>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }
