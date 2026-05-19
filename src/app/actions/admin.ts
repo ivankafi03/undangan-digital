@@ -58,20 +58,46 @@ export async function deletePromo(id: number) {
 
 // SETTING
 export async function updateSetting(formData: FormData) {
-    const nomor_wa = formData.get("nomor_wa") as string;
+    const data = {
+        nomor_wa: formData.get("nomor_wa") as string || "628123456789",
+        email: formData.get("email") as string || null,
+        instagram: formData.get("instagram") as string || null,
+        facebook: formData.get("facebook") as string || null,
+        tiktok: formData.get("tiktok") as string || null,
+        twitter: formData.get("twitter") as string || null,
+        youtube: formData.get("youtube") as string || null,
+        waTemplate: formData.get("waTemplate") as string || null,
+        promoBanner: formData.get("promoBanner") as string || null,
+        showPromo: formData.get("showPromo") === "true",
+    };
+
     const setting = await prisma.setting.findFirst();
 
     if (setting) {
         await prisma.setting.update({
             where: { id: setting.id },
-            data: { nomor_wa },
+            data,
         });
     } else {
         await prisma.setting.create({
-            data: { nomor_wa },
+            data,
         });
     }
 
     revalidatePath("/admin/setting");
     revalidatePath("/");
+}
+
+// TRAFFIC TRACKING
+export async function trackVisit() {
+    try {
+        const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+        await prisma.pageVisit.upsert({
+            where: { date: today },
+            update: { count: { increment: 1 } },
+            create: { date: today, count: 1 },
+        });
+    } catch (error) {
+        console.error("Failed to track visit:", error);
+    }
 }

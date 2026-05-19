@@ -2,6 +2,8 @@ import prisma from "@/lib/prisma";
 import { savePromo, deletePromo } from "@/app/actions/admin";
 import { Trash2, Image as ImageIcon, Plus, Upload } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function PromoPage() {
     const promos = await prisma.promo.findMany({
         orderBy: { createdAt: "desc" },

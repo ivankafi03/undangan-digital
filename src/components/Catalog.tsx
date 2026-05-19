@@ -19,11 +19,18 @@ function formatPrice(price: number) {
     return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(price);
 }
 
-export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: string }) {
+export default function Catalog({ temas, waNumber, setting }: { temas: Tema[], waNumber: string, setting?: any }) {
     const [selected, setSelected] = useState<Tema | null>(null);
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("Semua");
     
+    // Sort temas: promo items first, then by whatever order they came in (which is latest first)
+    const sortedTemas = [...temas].sort((a, b) => {
+        if (a.harga_diskon !== null && b.harga_diskon === null) return -1;
+        if (a.harga_diskon === null && b.harga_diskon !== null) return 1;
+        return 0;
+    });
+
     // Extract unique categories
     const categories = ["Semua", ...Array.from(new Set(temas.map(t => t.kategori || "Premium")))];
 
@@ -33,7 +40,7 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
     const [noWa, setNoWa] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const filtered = temas.filter(t => {
+    const filtered = sortedTemas.filter(t => {
         const matchesSearch = t.nama_tema.toLowerCase().includes(search.toLowerCase());
         const matchesCategory = activeCategory === "Semua" || (t.kategori || "Premium") === activeCategory;
         return matchesSearch && matchesCategory;
@@ -58,17 +65,14 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
         setLoading(false);
         
         if (res.success) {
-            const message = `Halo FikaDigi, saya ingin memesan tema undangan digital berikut:
-
-📋 *DETAIL PESANAN*
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-✦ *Tema:* ${selected.nama_tema}
-✦ *Harga:* ${formatPrice(harga)}
-✦ *Nama Pelanggan:* ${nama}
-✦ *No. WhatsApp:* ${noWa}
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Mohon info untuk langkah selanjutnya ya. Terima kasih!`;
+            const defaultTemplate = `Halo FikaDigi, saya ingin memesan tema undangan digital berikut:\n\n📋 *DETAIL PESANAN*\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n✦ *Tema:* [TEMA]\n✦ *Harga:* [HARGA]\n✦ *Nama Pelanggan:* [NAMA]\n✦ *No. WhatsApp:* [NOWA]\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nMohon info untuk langkah selanjutnya ya. Terima kasih!`;
+            
+            const rawTemplate = setting?.waTemplate || defaultTemplate;
+            const message = rawTemplate
+                .replace(/\[TEMA\]/g, selected.nama_tema)
+                .replace(/\[HARGA\]/g, formatPrice(harga))
+                .replace(/\[NAMA\]/g, nama)
+                .replace(/\[NOWA\]/g, noWa);
 
             const text = encodeURIComponent(message);
             window.open(`https://wa.me/${waNumber}?text=${text}`, "_blank");
@@ -88,7 +92,6 @@ Mohon info untuk langkah selanjutnya ya. Terima kasih!`;
         setNama("");
         setNoWa("");
     };
-
     return (
         <section id="katalog" className="py-16 px-5 bg-[#FAFAFA]">
             <div className="max-w-7xl mx-auto">

@@ -25,7 +25,7 @@ export default async function Home() {
     <main className="min-h-screen">
       <Hero waNumber={waNumber} />
       <Features />
-      <Catalog temas={temas} waNumber={waNumber} />
+      <Catalog temas={temas} waNumber={waNumber} setting={setting} />
       <OrderStep />
       {promo && <PromoSection promo={promo} waNumber={waNumber} />}
       <FAQ />

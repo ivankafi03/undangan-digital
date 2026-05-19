@@ -2,6 +2,8 @@ import prisma from "@/lib/prisma";
 import { updateOrderStatus, deleteOrder } from "@/app/actions/pesanan";
 import { Trash2, CheckCircle, Clock, Search, Package, ArrowRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPesananPage() {
     const orders = await prisma.order.findMany({
         include: { tema: true },

@@ -1,8 +1,8 @@
 "use client";
 
-import { Instagram, MessageCircle, Sparkles, Mail, ArrowRight } from "lucide-react";
+import { Instagram, MessageCircle, Mail, Facebook, Youtube, Presentation } from "lucide-react";
 
-export default function Footer({ waNumber }: { waNumber: string }) {
+export default function Footer({ waNumber, setting }: { waNumber: string, setting: any }) {
     const navLinks = [
         { label: "Beranda", href: "/#home" },
         { label: "Katalog Tema", href: "/#katalog" },
@@ -17,14 +17,11 @@ export default function Footer({ waNumber }: { waNumber: string }) {
 
     return (
         <footer className="bg-[#0B0F19] pt-16 pb-10 relative overflow-hidden">
-            {/* Subtle Grid Match with CTA */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
                  style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} 
             />
 
             <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
-                
-                {/* Top Section: Newsletter & Brand */}
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16 pb-16 border-b border-white/5">
                     <div className="max-w-md">
                         <div className="flex items-center gap-2.5 mb-6 group">
@@ -42,17 +39,33 @@ export default function Footer({ waNumber }: { waNumber: string }) {
                         <p className="text-gray-400 text-base leading-relaxed mb-8 font-light">
                             Platform pembuatan undangan digital premium yang dirancang untuk mengabadikan setiap detik momen istimewa Anda dengan keanggunan modern.
                         </p>
-                        <div className="flex items-center gap-3">
-                            <a href="#" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-sky-400 hover:border-sky-400/50 hover:bg-sky-500/10 transition-all">
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href={`https://wa.me/${waNumber}`} target="_blank" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-sky-400 hover:border-sky-400/50 hover:bg-sky-500/10 transition-all">
+                        <div className="flex flex-wrap items-center gap-3">
+                            {setting?.instagram && (
+                                <a href={setting.instagram} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-pink-400 hover:border-pink-400/50 hover:bg-pink-500/10 transition-all">
+                                    <Instagram className="w-5 h-5" />
+                                </a>
+                            )}
+                            {setting?.facebook && (
+                                <a href={setting.facebook} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-500 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all">
+                                    <Facebook className="w-5 h-5" />
+                                </a>
+                            )}
+                            {setting?.tiktok && (
+                                <a href={setting.tiktok} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/50 hover:bg-white/10 transition-all">
+                                    <Presentation className="w-5 h-5" />
+                                </a>
+                            )}
+                            {setting?.youtube && (
+                                <a href={setting.youtube} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500/50 hover:bg-red-500/10 transition-all">
+                                    <Youtube className="w-5 h-5" />
+                                </a>
+                            )}
+                            <a href={`https://wa.me/${waNumber}`} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-green-400 hover:border-green-400/50 hover:bg-green-500/10 transition-all">
                                 <MessageCircle className="w-5 h-5" />
                             </a>
                         </div>
                     </div>
 
-                    {/* Newsletter Simulation */}
                     <div className="w-full lg:w-[450px] bg-white/5 p-8 rounded-[32px] border border-white/10 backdrop-blur-sm">
                         <h4 className="text-lg font-bold text-white mb-2">Dapatkan Info Promo Khusus</h4>
                         <p className="text-gray-400 text-sm mb-6 font-light">Berlangganan untuk mendapatkan rilis tema terbaru dan diskon eksklusif.</p>
@@ -72,7 +85,6 @@ export default function Footer({ waNumber }: { waNumber: string }) {
                     </div>
                 </div>
 
-                {/* Bottom Section: Links & Copyright */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-wrap gap-x-8 gap-y-3">
@@ -94,7 +106,9 @@ export default function Footer({ waNumber }: { waNumber: string }) {
                     <div className="text-left md:text-right">
                         <p className="text-sm font-bold text-white mb-1">Hubungi Kami</p>
                         <a href={`https://wa.me/${waNumber}`} className="text-sky-400 font-medium hover:text-sky-300 transition-colors block mb-1">+{waNumber}</a>
-                        <p className="text-sm text-gray-500">hello@fikadigi.com</p>
+                        {setting?.email && (
+                            <a href={`mailto:${setting.email}`} className="text-sm text-gray-500 hover:text-gray-300 transition-colors">{setting.email}</a>
+                        )}
                     </div>
                 </div>
 

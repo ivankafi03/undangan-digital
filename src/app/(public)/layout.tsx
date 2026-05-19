@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Tracker from "@/components/Tracker";
 
 export default async function PublicLayout({
     children,
@@ -12,9 +13,10 @@ export default async function PublicLayout({
 
     return (
         <>
-            <Navbar waNumber={waNumber} />
+            <Tracker />
+            <Navbar waNumber={waNumber} setting={setting} />
             {children}
-            <Footer waNumber={waNumber} />
+            <Footer waNumber={waNumber} setting={setting} />
         </>
     );
 }

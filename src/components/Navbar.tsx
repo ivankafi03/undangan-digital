@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Megaphone } from "lucide-react";
 
-export default function Navbar({ waNumber }: { waNumber: string }) {
+export default function Navbar({ waNumber, setting }: { waNumber: string, setting?: any }) {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -21,9 +21,18 @@ export default function Navbar({ waNumber }: { waNumber: string }) {
         { label: "Dashboard Member", href: "/member/dashboard" },
     ];
 
+    const showPromo = setting?.showPromo && setting?.promoBanner;
+
     return (
         <>
-            <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#F3F4F6]" : "bg-transparent"}`}>
+            {showPromo && (
+                <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-blue-600 to-sky-500 text-white text-xs sm:text-sm font-bold py-2 px-4 text-center shadow-md flex items-center justify-center gap-2">
+                    <Megaphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
+                    <span className="truncate">{setting.promoBanner}</span>
+                </div>
+            )}
+
+            <nav className={`fixed ${showPromo ? "top-8 sm:top-9" : "top-0"} left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#F3F4F6]" : "bg-transparent"}`}>
                 <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2.5 group">
@@ -66,7 +75,7 @@ export default function Navbar({ waNumber }: { waNumber: string }) {
 
             {/* Mobile Menu */}
             {open && (
-                <div className="fixed inset-0 z-40 bg-white flex flex-col pt-24 px-6 animate-in fade-in slide-in-from-top-4 duration-300">
+                <div className={`fixed inset-0 z-40 bg-white flex flex-col ${showPromo ? "pt-32" : "pt-24"} px-6 animate-in fade-in slide-in-from-top-4 duration-300`}>
                     <div className="flex flex-col gap-2">
                         {links.map(l => (
                             <a

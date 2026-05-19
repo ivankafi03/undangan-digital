@@ -46,10 +46,19 @@ model Promo {
 
 
 model Setting {
-  id        Int      @id @default(autoincrement())
-  nomor_wa  String   @default("628123456789")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  nomor_wa    String   @default("628123456789")
+  email       String?
+  instagram   String?
+  facebook    String?
+  tiktok      String?
+  twitter     String?
+  youtube     String?
+  waTemplate  String?  @db.Text
+  promoBanner String?
+  showPromo   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Order {
@@ -64,4 +73,12 @@ model Order {
   user           User?    @relation(fields: [userId], references: [id])
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+}
+
+model PageVisit {
+  id        Int      @id @default(autoincrement())
+  date      String   @unique // Format: YYYY-MM-DD
+  count     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
