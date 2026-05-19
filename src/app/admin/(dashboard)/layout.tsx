@@ -54,22 +54,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </main>
 
             {/* Premium Floating Bottom Navigation Dock */}
-            <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[480px]">
-                <nav className="bg-slate-950/95 text-white backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-800 shadow-[0_15px_40px_rgba(0,0,0,0.35)] flex items-center justify-around gap-1">
+            <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-[480px]">
+                <nav className="bg-slate-950/95 text-white backdrop-blur-md px-1.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl border border-slate-800 shadow-[0_15px_40px_rgba(0,0,0,0.35)] flex items-center justify-around gap-0.5">
                     {navItems.map((item) => {
                         const isActive = pathname === item.href || (item.name === "Dashboard" && pathname === "/admin");
                         return (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-300 flex-1 ${
+                                className={`flex flex-col items-center justify-center py-1 px-1 sm:px-2.5 rounded-xl transition-all duration-300 flex-1 min-w-0 ${
                                     isActive
                                         ? "text-sky-400 scale-105"
                                         : "text-slate-400 hover:text-white"
                                 }`}
                             >
-                                <item.icon className={`w-5 h-5 transition-transform ${isActive ? "stroke-[2.5px]" : "stroke-[2px]"}`} />
-                                <span className="text-[9px] font-bold mt-1 tracking-tight">{item.name}</span>
+                                <item.icon className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform flex-shrink-0 ${isActive ? "stroke-[2.5px]" : "stroke-[2px]"}`} />
+                                <span className="text-[7.5px] min-[360px]:text-[8.5px] sm:text-[9.5px] font-bold mt-1 tracking-tighter truncate max-w-full text-center block whitespace-nowrap">{item.name}</span>
                             </Link>
                         );
                     })}
