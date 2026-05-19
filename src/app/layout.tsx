@@ -10,7 +10,29 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "FikaDigi - Undangan Digital Premium",
-  description: "Layanan pembuatan undangan digital profesional untuk segala momen bahagia bersama FikaDigi.",
+  description: "Layanan pembuatan undangan digital profesional, instan, dan elegan untuk segala momen bahagia bersama FikaDigi.",
+  openGraph: {
+    title: "FikaDigi - Undangan Digital Premium",
+    description: "Layanan pembuatan undangan digital profesional, instan, dan elegan untuk segala momen bahagia bersama FikaDigi.",
+    url: "https://whatsappp.my.id",
+    siteName: "FikaDigi",
+    images: [
+      {
+        url: "https://whatsappp.my.id/658080585_18042732272580949_1176413146137522839_n.jpg",
+        width: 1200,
+        height: 630,
+        alt: "FikaDigi Logo Preview",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FikaDigi - Undangan Digital Premium",
+    description: "Layanan pembuatan undangan digital profesional, instan, dan elegan untuk segala momen bahagia bersama FikaDigi.",
+    images: ["https://whatsappp.my.id/658080585_18042732272580949_1176413146137522839_n.jpg"],
+  },
 };
 
 export default function RootLayout({
