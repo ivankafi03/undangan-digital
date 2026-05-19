@@ -53,16 +53,16 @@ const itemVariants = {
 
 export default function Features() {
     return (
-        <section id="fitur" className="py-12 px-5 bg-white overflow-hidden relative">
+        <section id="fitur" className="py-10 md:py-16 px-5 bg-white overflow-hidden relative">
             <div className="max-w-6xl mx-auto">
                 <motion.div 
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-10 md:mb-16"
                 >
-                    <h2 className="text-4xl md:text-6xl font-extrabold text-[#111111] tracking-tight">
+                    <h2 className="text-3xl md:text-6xl font-extrabold text-[#111111] tracking-tight">
                         Lebih dari sekadar <br/>
                         <span className="text-sky-500 font-serif italic font-medium">undangan digital.</span>
                     </h2>
@@ -80,12 +80,12 @@ export default function Features() {
                             key={i} 
                             variants={itemVariants}
                             whileHover={{ y: -5 }}
-                            className="group relative bg-[#FAFAFA] rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
+                            className="group relative bg-[#FAFAFA] rounded-3xl p-6 sm:p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
                                 {f.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{f.title}</h3>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{f.title}</h3>
                             <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                         </motion.div>
                     ))}

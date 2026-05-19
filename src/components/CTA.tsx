@@ -26,12 +26,12 @@ export default function CTA({ waNumber }: { waNumber: string }) {
                     Mari Mulai Perjalanan Anda
                 </motion.div>
 
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 tracking-tighter leading-tight max-w-4xl">
+                <h2 className="text-3xl md:text-5xl lg:text-7xl font-extrabold text-white mb-4 sm:mb-8 tracking-tighter leading-tight max-w-4xl">
                     Siap membuat undangan <br className="hidden md:block" />
                     yang <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 italic font-serif font-medium">tak terlupakan?</span>
                 </h2>
 
-                <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+                <p className="text-gray-400 text-sm sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light">
                     Bergabunglah dengan ribuan pasangan yang telah mempercayakan momen bahagia mereka bersama FikaDigi. Praktis, elegan, dan siap disebarkan.
                 </p>
 

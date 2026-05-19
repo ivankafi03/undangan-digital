@@ -40,13 +40,13 @@ export default function OrderStep() {
     const [activeStep, setActiveStep] = useState(1);
 
     return (
-        <section id="cara-order" className="py-12 px-5 bg-[#FAFAFA] border-t border-gray-100">
+        <section id="cara-order" className="py-10 md:py-16 px-5 bg-[#FAFAFA] border-t border-gray-100">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
+                <div className="text-center mb-10 md:mb-16">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] tracking-tight">
                         Cara <span className="text-sky-500 font-serif italic font-medium">Pesan</span>
                     </h2>
-                    <p className="text-gray-500 mt-4 max-w-xl mx-auto">4 langkah mudah untuk mewujudkan undangan pernikahan digital impian Anda bersama FikaDigi.</p>
+                    <p className="text-gray-500 mt-2 sm:mt-4 text-sm sm:text-base max-w-xl mx-auto">4 langkah mudah untuk mewujudkan undangan pernikahan digital impian Anda bersama FikaDigi.</p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">

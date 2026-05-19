@@ -30,7 +30,7 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold text-[#111111] tracking-tighter mb-8 leading-[1.05]"
+                    className="text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold text-[#111111] tracking-tighter mb-4 sm:mb-8 leading-[1.1] sm:leading-[1.05]"
                 >
                     Momen Spesial <br className="hidden md:block" />
                     Dalam <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600">Satu Sentuhan.</span>
@@ -40,7 +40,7 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-12 font-medium"
+                    className="text-sm sm:text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-12 font-medium"
                 >
                     Platform premium untuk menciptakan undangan pernikahan digital eksklusif. Praktis, indah, dan abadi.
                 </motion.p>
@@ -50,11 +50,11 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-20"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto mb-10 sm:mb-20"
                 >
                     <a
                         href="/#katalog"
-                        className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-[#111111] text-white text-base font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 shadow-xl shadow-gray-200"
+                        className="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-[#111111] text-white text-sm sm:text-base font-semibold rounded-full hover:bg-gray-800 transition-all duration-300 shadow-xl shadow-gray-200"
                     >
                         Buat Undangan
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -62,7 +62,7 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                     <a
                         href={`https://wa.me/${waNumber}`}
                         target="_blank"
-                        className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-[#111111] text-base font-semibold rounded-full hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 shadow-sm"
+                        className="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 sm:px-8 sm:py-4 bg-white border border-gray-200 text-[#111111] text-sm sm:text-base font-semibold rounded-full hover:border-gray-300 hover:bg-gray-50 transition-all duration-300 shadow-sm"
                     >
                         <PlayCircle className="w-5 h-5 text-sky-500 group-hover:scale-110 transition-transform" />
                         Konsultasi via WA
@@ -76,7 +76,7 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                     transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
                     className="w-full relative"
                 >
-                    <div className="relative w-full max-w-5xl mx-auto aspect-[16/9] md:aspect-[21/9] bg-gray-100 rounded-t-[2rem] md:rounded-t-[3rem] overflow-hidden border-t-8 border-x-8 border-gray-50 shadow-[0_-20px_60px_-15px_rgba(14,165,233,0.1)]">
+                    <div className="relative w-full max-w-5xl mx-auto aspect-[16/9] md:aspect-[21/9] bg-gray-100 rounded-t-2xl sm:rounded-t-[3rem] overflow-hidden border-t-4 sm:border-t-8 border-x-4 sm:border-x-8 border-gray-50 shadow-[0_-20px_60px_-15px_rgba(14,165,233,0.1)]">
                         <img 
                             src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=2000" 
                             alt="FikaDigi Wedding Invitation Theme Showcase"
