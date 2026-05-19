@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Instagram, MessageCircle, Mail, Facebook, Youtube, Presentation } from "lucide-react";
 
 export default function Footer({ waNumber, setting }: { waNumber: string, setting: any }) {
+    const [email, setEmail] = useState("");
+    const [isSubscribed, setIsSubscribed] = useState(false);
+
     const navLinks = [
         { label: "Beranda", href: "/#home" },
         { label: "Katalog Tema", href: "/#katalog" },
@@ -69,19 +73,34 @@ export default function Footer({ waNumber, setting }: { waNumber: string, settin
                     <div className="w-full lg:w-[450px] bg-white/5 p-8 rounded-[32px] border border-white/10 backdrop-blur-sm">
                         <h4 className="text-lg font-bold text-white mb-2">Dapatkan Info Promo Khusus</h4>
                         <p className="text-gray-400 text-sm mb-6 font-light">Berlangganan untuk mendapatkan rilis tema terbaru dan diskon eksklusif.</p>
-                        <form className="relative flex items-center" onSubmit={(e) => e.preventDefault()}>
-                            <div className="absolute left-4 text-gray-500">
-                                <Mail className="w-5 h-5" />
+                        
+                        {isSubscribed ? (
+                            <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-2xl text-sm font-bold text-center animate-fade-in flex items-center justify-center gap-2">
+                                <span>🎉 Sukses! Terima kasih telah berlangganan.</span>
                             </div>
-                            <input 
-                                type="email" 
-                                placeholder="Alamat email Anda" 
-                                className="w-full bg-[#0A0E17] border border-white/10 rounded-2xl py-4 pl-12 pr-32 text-sm text-white focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all placeholder:text-gray-600"
-                            />
-                            <button className="absolute right-2 top-2 bottom-2 bg-sky-500 text-white px-5 rounded-xl text-sm font-bold hover:bg-sky-400 transition-colors flex items-center gap-2">
-                                Kirim
-                            </button>
-                        </form>
+                        ) : (
+                            <form className="relative flex items-center" onSubmit={(e) => {
+                                e.preventDefault();
+                                if (email.trim()) {
+                                    setIsSubscribed(true);
+                                }
+                            }}>
+                                <div className="absolute left-4 text-gray-500">
+                                    <Mail className="w-5 h-5" />
+                                </div>
+                                <input 
+                                    type="email" 
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Alamat email Anda" 
+                                    className="w-full bg-[#0A0E17] border border-white/10 rounded-2xl py-4 pl-12 pr-32 text-sm text-white focus:outline-none focus:border-sky-500/50 focus:ring-1 focus:ring-sky-500/50 transition-all placeholder:text-gray-600"
+                                />
+                                <button type="submit" className="absolute right-2 top-2 bottom-2 bg-sky-500 text-white px-5 rounded-xl text-sm font-bold hover:bg-sky-400 transition-colors flex items-center gap-2">
+                                    Kirim
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
 
