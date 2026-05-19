@@ -16,7 +16,7 @@ export default async function SettingPage() {
 
             <form action={updateSetting} className="space-y-8 sm:space-y-12">
                 {/* Kontak & Komunikasi */}
-                <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm p-6 sm:p-10 border border-slate-100">
+                <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
                         <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center">
                             <MessageCircle className="w-5 h-5" />
@@ -62,7 +62,7 @@ export default async function SettingPage() {
                 </div>
 
                 {/* Sosial Media */}
-                <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm p-6 sm:p-10 border border-slate-100">
+                <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
                         <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center">
                             <Instagram className="w-5 h-5" />
@@ -116,7 +116,7 @@ export default async function SettingPage() {
                 </div>
 
                 {/* Banner Promo */}
-                <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-sm p-6 sm:p-10 border border-slate-100">
+                <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-sm p-4 sm:p-10 border border-slate-100">
                     <div className="flex items-center gap-3 text-slate-900 font-bold mb-6">
                         <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center">
                             <Megaphone className="w-5 h-5" />

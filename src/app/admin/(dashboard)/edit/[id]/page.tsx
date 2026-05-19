@@ -26,7 +26,7 @@ export default async function EditTemaPage({
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">Perbarui informasi tema undangan digital.</p>
             </div>
 
-            <div className="bg-white rounded-2xl sm:rounded-[2rem] shadow-xl p-5 sm:p-10 border border-slate-100">
+            <div className="bg-white rounded-xl sm:rounded-[2rem] shadow-xl p-4 sm:p-10 border border-slate-100">
                 <form action={updateTema.bind(null, id)} className="space-y-6">
                     <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 ml-1">Nama Tema</label>

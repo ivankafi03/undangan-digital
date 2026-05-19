@@ -72,49 +72,49 @@ export default async function AdminDashboard() {
             </div>
 
             {/* Statistik Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
                 {/* Total Tema */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center flex-shrink-0">
-                        <LayoutTemplate className="w-7 h-7" />
+                <div className="bg-white p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 sm:gap-5 hover:shadow-md transition-shadow">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center flex-shrink-0">
+                        <LayoutTemplate className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Tema</p>
-                        <h3 className="text-2xl font-extrabold text-slate-900 mt-0.5">{totalTema}</h3>
+                        <p className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Tema</p>
+                        <h3 className="text-base sm:text-2xl font-extrabold text-slate-900 mt-0.5">{totalTema}</h3>
                     </div>
                 </div>
 
                 {/* Total Pesanan */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center flex-shrink-0">
-                        <ShoppingBag className="w-7 h-7" />
+                <div className="bg-white p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 sm:gap-5 hover:shadow-md transition-shadow">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center flex-shrink-0">
+                        <ShoppingBag className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Pesanan</p>
-                        <h3 className="text-2xl font-extrabold text-slate-900 mt-0.5">{totalPesanan}</h3>
+                        <p className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Total Pesanan</p>
+                        <h3 className="text-base sm:text-2xl font-extrabold text-slate-900 mt-0.5">{totalPesanan}</h3>
                     </div>
                 </div>
 
                 {/* Pendapatan Selesai */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center flex-shrink-0">
-                        <TrendingUp className="w-7 h-7" />
+                <div className="bg-white p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 sm:gap-5 hover:shadow-md transition-shadow">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pendapatan Selesai</p>
-                        <h3 className="text-2xl font-extrabold text-slate-900 mt-0.5">{formatPrice(estimasiPendapatan)}</h3>
+                        <p className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pendapatan Selesai</p>
+                        <h3 className="text-base sm:text-2xl font-extrabold text-slate-900 mt-0.5">{formatPrice(estimasiPendapatan)}</h3>
                     </div>
                 </div>
 
                 {/* Total Kunjungan */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
-                    <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center flex-shrink-0">
-                        <Eye className="w-7 h-7" />
+                <div className="bg-white p-3 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 sm:gap-5 hover:shadow-md transition-shadow">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center flex-shrink-0">
+                        <Eye className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kunjungan Hari Ini</p>
-                        <h3 className="text-2xl font-extrabold text-slate-900 mt-0.5">
-                            {todayViews} <span className="text-xs font-semibold text-slate-400">({totalViews} total)</span>
+                        <p className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kunjungan Hari Ini</p>
+                        <h3 className="text-base sm:text-2xl font-extrabold text-slate-900 mt-0.5">
+                            {todayViews} <span className="text-[10px] sm:text-xs font-semibold text-slate-400">({totalViews} total)</span>
                         </h3>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ export default async function AdminDashboard() {
             {/* Bento Grid: Traffic Chart & Recent Orders */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Traffic Analytics (Left 2 columns) */}
-                <div className="lg:col-span-2 bg-white p-6 sm:p-8 rounded-[2rem] border border-slate-100 shadow-sm space-y-6">
+                <div className="lg:col-span-2 bg-white p-4 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-sm space-y-4 sm:space-y-6">
                     <div className="flex justify-between items-center">
                         <div>
                             <h3 className="text-lg sm:text-xl font-bold text-slate-900">Trafik Pengunjung</h3>
@@ -137,7 +137,7 @@ export default async function AdminDashboard() {
                 </div>
 
                 {/* 5 Recent Orders (Right 1 column) */}
-                <div className="bg-white p-6 sm:p-8 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between">
+                <div className="bg-white p-4 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between">
                     <div>
                         <div className="flex justify-between items-center mb-6">
                             <div>
@@ -157,20 +157,20 @@ export default async function AdminDashboard() {
                         ) : (
                             <div className="space-y-4">
                                 {recentOrders.map((order) => (
-                                    <div key={order.id} className="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl border border-slate-100">
-                                        <div className="min-w-0 flex-1 pr-3">
-                                            <p className="text-sm font-bold text-slate-900 truncate">{order.nama_pelanggan}</p>
-                                            <p className="text-xs text-slate-500 font-medium truncate mt-0.5">{order.tema.nama_tema}</p>
+                                    <div key={order.id} className="flex items-center justify-between p-2.5 sm:p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                                        <div className="min-w-0 flex-1 pr-2 sm:pr-3">
+                                            <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">{order.nama_pelanggan}</p>
+                                            <p className="text-[10px] sm:text-xs text-slate-500 font-medium truncate mt-0.5">{order.tema.nama_tema}</p>
                                         </div>
                                         <div className="text-right flex-shrink-0">
-                                            <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                                            <span className={`inline-block px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-bold uppercase tracking-wider ${
                                                 order.status === "Selesai" ? "bg-emerald-50 text-emerald-600 border border-emerald-100" :
                                                 order.status === "Diproses" ? "bg-blue-50 text-blue-600 border border-blue-100" :
                                                 "bg-amber-50 text-amber-600 border border-amber-100"
                                             }`}>
                                                 {order.status}
                                             </span>
-                                            <p className="text-xs font-extrabold text-slate-800 mt-1">{formatPrice(order.harga)}</p>
+                                            <p className="text-[10px] sm:text-xs font-extrabold text-slate-800 mt-0.5 sm:mt-1">{formatPrice(order.harga)}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -193,7 +193,7 @@ export default async function AdminDashboard() {
                     {temas.map((tema) => (
                         <div key={tema.id} className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between w-full">
                             {/* Gambar */}
-                            <div className="relative aspect-[16/11] overflow-hidden bg-slate-50 flex-shrink-0">
+                            <div className="relative aspect-[4/5] overflow-hidden bg-slate-50 flex-shrink-0">
                                 <img
                                     src={tema.gambar.startsWith('http') ? tema.gambar : `/storage/${tema.gambar}`}
                                     alt={tema.nama_tema}
