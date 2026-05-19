@@ -4,7 +4,11 @@ import { LayoutDashboard, FileText, Tag, Image, Settings, ExternalLink, Shopping
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function Sidebar() {
+interface SidebarProps {
+    onItemClick?: () => void;
+}
+
+export function Sidebar({ onItemClick }: SidebarProps) {
     const pathname = usePathname();
 
     const menuItems = [
@@ -16,7 +20,7 @@ export function Sidebar() {
     ];
 
     return (
-        <nav className="flex-1 px-10 space-y-2">
+        <nav className="flex-1 px-8 lg:px-10 space-y-2">
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6 ml-1">Main Menu</p>
             {menuItems.map((item) => {
                 const isActive = pathname === item.href || (item.name === "Dashboard" && pathname === "/admin");
@@ -24,6 +28,7 @@ export function Sidebar() {
                     <Link
                         key={item.name}
                         href={item.href}
+                        onClick={onItemClick}
                         className={`flex items-center gap-4 px-5 py-4 rounded-2xl font-bold transition-all duration-300 ${isActive
                             ? "bg-slate-900 text-white shadow-xl shadow-slate-200"
                             : "text-slate-500 hover:bg-slate-50 hover:text-sky-500"
@@ -40,6 +45,7 @@ export function Sidebar() {
                 <a
                     href="/"
                     target="_blank"
+                    onClick={onItemClick}
                     className="flex items-center gap-4 px-5 py-3 text-slate-400 hover:text-slate-900 transition font-bold text-sm"
                 >
                     <ExternalLink className="w-4 h-4" />
