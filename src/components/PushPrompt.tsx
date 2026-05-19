@@ -93,42 +93,42 @@ export default function PushPrompt() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 30, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed bottom-6 right-6 z-50 w-full max-w-[360px] p-5 rounded-3xl bg-slate-900/95 text-white border border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-md"
+                    className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 mx-auto sm:mx-0 z-50 w-[calc(100%-2rem)] sm:w-72 max-w-[290px] p-4 rounded-2xl bg-slate-950/95 text-white border border-slate-800 shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
                 >
                     {/* Close Button */}
                     <button 
                         onClick={handleDismiss}
-                        className="absolute top-4 right-4 text-slate-500 hover:text-white transition"
+                        className="absolute top-3.5 right-3.5 text-slate-500 hover:text-white transition"
                     >
-                        <X className="w-4 h-4" />
+                        <X className="w-3.5 h-3.5" />
                     </button>
 
                     {status === "prompt" && (
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 animate-pulse">
-                                    <Bell className="w-5 h-5" />
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-2.5">
+                                <div className="w-8 h-8 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 animate-pulse">
+                                    <Bell className="w-4 h-4" />
                                 </div>
                                 <div>
-                                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-sky-400 uppercase tracking-widest">
-                                        <Sparkles className="w-3 h-3" /> Info Promo
+                                    <span className="block text-[9px] font-bold text-sky-400 uppercase tracking-wider">
+                                        Info Promo
                                     </span>
-                                    <h4 className="text-sm font-extrabold tracking-tight">Aktifkan Notifikasi?</h4>
+                                    <h4 className="text-xs font-black tracking-tight">Aktifkan Notifikasi?</h4>
                                 </div>
                             </div>
-                            <p className="text-xs text-slate-400 leading-relaxed">
-                                Dapatkan info rilis tema undangan digital terbaru, diskon kilat, dan promo eksklusif gratis langsung di layar HP/Laptop Anda!
+                            <p className="text-[10.5px] text-slate-400 leading-relaxed">
+                                Dapatkan info rilis tema terbaru dan diskon kilat langsung di layar HP/Laptop Anda!
                             </p>
-                            <div className="flex gap-2.5 pt-1">
+                            <div className="flex gap-2 pt-0.5">
                                 <button
                                     onClick={handleDismiss}
-                                    className="flex-1 py-2.5 px-4 bg-white/5 border border-white/10 rounded-xl text-xs font-bold hover:bg-white/10 transition"
+                                    className="flex-1 py-2 px-3 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold hover:bg-white/10 transition"
                                 >
                                     Nanti Saja
                                 </button>
                                 <button
                                     onClick={handleSubscribe}
-                                    className="flex-1 py-2.5 px-4 bg-sky-500 text-white rounded-xl text-xs font-bold hover:bg-sky-400 transition shadow-[0_0_20px_rgba(14,165,233,0.3)]"
+                                    className="flex-1 py-2 px-3 bg-sky-500 text-white rounded-lg text-[10px] font-bold hover:bg-sky-400 transition shadow-[0_0_15px_rgba(14,165,233,0.3)]"
                                 >
                                     Terima
                                 </button>
@@ -137,33 +137,33 @@ export default function PushPrompt() {
                     )}
 
                     {status === "loading" && (
-                        <div className="py-6 flex flex-col items-center justify-center gap-3 text-center">
-                            <div className="w-10 h-10 rounded-full border-2 border-slate-800 border-t-sky-400 animate-spin" />
-                            <p className="text-xs font-bold text-slate-300">Menghubungkan ke browser...</p>
-                            <p className="text-[10px] text-slate-500">Silakan klik "Allow/Izinkan" pada dialog browser Anda.</p>
+                        <div className="py-4 flex flex-col items-center justify-center gap-2.5 text-center">
+                            <div className="w-8 h-8 rounded-full border-2 border-slate-800 border-t-sky-400 animate-spin" />
+                            <p className="text-[11px] font-bold text-slate-300">Menghubungkan...</p>
+                            <p className="text-[9px] text-slate-500">Silakan klik "Allow/Izinkan" pada dialog browser.</p>
                         </div>
                     )}
 
                     {status === "success" && (
-                        <div className="py-4 flex flex-col items-center justify-center gap-3 text-center">
-                            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                                <Bell className="w-6 h-6 animate-bounce" />
+                        <div className="py-3 flex flex-col items-center justify-center gap-2 text-center">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                <Bell className="w-5 h-5 animate-bounce" />
                             </div>
-                            <h4 className="text-sm font-extrabold text-emerald-400">🎉 Notifikasi Aktif!</h4>
-                            <p className="text-xs text-slate-400 leading-relaxed max-w-[220px]">
-                                Terima kasih! Anda akan menerima update promo langsung di perangkat ini.
+                            <h4 className="text-xs font-black text-emerald-400">🎉 Notifikasi Aktif!</h4>
+                            <p className="text-[10px] text-slate-400 leading-normal max-w-[200px]">
+                                Anda akan menerima info promo langsung di perangkat ini.
                             </p>
                         </div>
                     )}
 
                     {status === "denied" && (
-                        <div className="py-4 flex flex-col items-center justify-center gap-3 text-center">
-                            <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
-                                <BellOff className="w-6 h-6" />
+                        <div className="py-3 flex flex-col items-center justify-center gap-2 text-center">
+                            <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
+                                <BellOff className="w-5 h-5" />
                             </div>
-                            <h4 className="text-sm font-extrabold text-rose-400">Izin Ditolak</h4>
-                            <p className="text-xs text-slate-400 leading-relaxed">
-                                Anda menolak izin notifikasi. Anda dapat mengaktifkannya kapan saja lewat pengaturan gembok browser.
+                            <h4 className="text-xs font-black text-rose-400">Izin Ditolak</h4>
+                            <p className="text-[10px] text-slate-400 leading-normal">
+                                Izin notifikasi ditolak. Anda dapat mengaktifkannya via setelan browser.
                             </p>
                         </div>
                     )}
