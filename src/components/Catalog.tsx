@@ -201,7 +201,7 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Complex Kawung Batik Watermark (Full Modal) */}
-                            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+                            <div className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
 
                             {/* Modal Image */}
                             <div className="w-full md:w-1/2 p-2 hidden md:block relative z-10">
