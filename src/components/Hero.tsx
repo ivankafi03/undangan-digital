@@ -10,7 +10,8 @@ export default function Hero({ waNumber }: { waNumber: string }) {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-100/60 via-transparent to-transparent pointer-events-none" />
             
             {/* Soft Elegant Batik Watermark Background */}
-            <div className="absolute inset-0 z-0 opacity-[0.09] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+            <div className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white z-0 pointer-events-none" />
             
             <div className="relative max-w-5xl mx-auto px-5 lg:px-8 flex flex-col items-center text-center z-10 w-full mt-2 md:mt-4">
                 
