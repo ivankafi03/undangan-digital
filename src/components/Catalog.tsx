@@ -127,7 +127,7 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 md:gap-8">
                     <AnimatePresence>
                         {filtered.map((tema) => (
                             <motion.div
@@ -141,14 +141,14 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                                 onClick={() => setSelected(tema)}
                             >
                                 {/* Premium Card Image */}
-                                <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-white shadow-sm border border-gray-100 mb-5 group-hover:shadow-xl group-hover:shadow-sky-900/5 transition-all duration-500">
+                                <div className="relative aspect-[4/5] rounded-xl sm:rounded-[2rem] overflow-hidden bg-white shadow-sm border border-gray-100 mb-2 sm:mb-5 group-hover:shadow-xl group-hover:shadow-sky-900/5 transition-all duration-500">
                                     <img
                                         src={tema.gambar.startsWith('http') ? tema.gambar : `/storage/${tema.gambar}`}
                                         alt={tema.nama_tema}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                                     />
                                     {tema.harga_diskon && (
-                                        <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md text-sky-600 text-[10px] font-black rounded-full uppercase tracking-widest shadow-sm">
+                                        <div className="absolute top-1 right-1 sm:top-4 sm:right-4 px-1.5 py-0.5 sm:px-3 sm:py-1 bg-white/90 backdrop-blur-md text-sky-600 text-[6px] sm:text-[10px] font-black rounded-full uppercase tracking-widest shadow-sm">
                                             Promo
                                         </div>
                                     )}
@@ -160,13 +160,13 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                                 </div>
 
                                 {/* Minimalist Typography Info */}
-                                <div className="px-2">
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">{tema.kategori}</p>
-                                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-sky-500 transition-colors line-clamp-1">{tema.nama_tema}</h3>
-                                    <div className="flex items-center gap-3 mt-1.5">
-                                        <span className="text-base font-bold text-gray-900">{formatPrice(hargaAktif(tema))}</span>
+                                <div className="px-1 sm:px-2">
+                                    <p className="text-[7px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5 sm:mb-1.5">{tema.kategori}</p>
+                                    <h3 className="text-[10px] sm:text-lg font-bold text-gray-900 group-hover:text-sky-500 transition-colors line-clamp-1">{tema.nama_tema}</h3>
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 mt-0.5 sm:mt-1.5">
+                                        <span className="text-[9px] sm:text-base font-bold text-gray-900">{formatPrice(hargaAktif(tema))}</span>
                                         {tema.harga_diskon && (
-                                            <span className="text-sm text-gray-400 line-through font-medium">{formatPrice(tema.harga_asli)}</span>
+                                            <span className="text-[7px] sm:text-sm text-gray-400 line-through font-medium">{formatPrice(tema.harga_asli)}</span>
                                         )}
                                     </div>
                                 </div>
