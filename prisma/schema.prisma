@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String   @default("Member")
+  email     String   @unique
+  no_wa     String?  @unique
+  password  String
+  role      String   @default("MEMBER") // "ADMIN" atau "MEMBER"
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tema {
+  id           Int      @id @default(autoincrement())
+  nama_tema    String
+  kategori     String   @default("Pernikahan")
+  gambar       String
+  link_demo    String
+  harga_asli   Float    @default(0)
+  harga_diskon Float?
+  orders       Order[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Promo {
+  id         Int      @id @default(autoincrement())
+  gambar     String
+  keterangan String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  nomor_wa  String   @default("628123456789")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id             Int      @id @default(autoincrement())
+  nama_pelanggan String
+  no_wa          String?
+  temaId         Int
+  tema           Tema     @relation(fields: [temaId], references: [id])
+  harga          Float
+  status         String   @default("Pending") // Pending, Diproses, Selesai
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id])
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
