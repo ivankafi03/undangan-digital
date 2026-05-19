@@ -80,13 +80,13 @@ export default function Features() {
                             key={i} 
                             variants={itemVariants}
                             whileHover={{ y: -5 }}
-                            className="group relative bg-[#FAFAFA] rounded-3xl p-6 sm:p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
+                            className="group relative bg-[#FAFAFA] rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-gray-100 hover:shadow-xl hover:border-sky-100 transition-all duration-300"
                         >
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center mb-3 sm:mb-6 group-hover:scale-110 transition-transform [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6">
                                 {f.icon}
                             </div>
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{f.title}</h3>
-                            <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                            <h3 className="text-base sm:text-xl font-bold text-gray-900 mb-1.5 sm:mb-3">{f.title}</h3>
+                            <p className="text-gray-500 text-[12px] sm:text-sm leading-relaxed">{f.desc}</p>
                         </motion.div>
                     ))}
                 </motion.div>

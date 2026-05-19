@@ -86,9 +86,9 @@ export default function Hero({ waNumber }: { waNumber: string }) {
                         <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
                         
                         {/* Elegant floating label */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-gray-100 z-20 flex items-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-green-500" />
-                            <span className="text-sm font-bold text-gray-900 tracking-wide">FikaDigi Wedding Themes</span>
+                        <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg border border-gray-100 z-20 flex items-center gap-2 sm:gap-3 whitespace-nowrap">
+                            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500" />
+                            <span className="text-[10px] sm:text-sm font-bold text-gray-900 tracking-wide">FikaDigi Wedding Themes</span>
                         </div>
                     </div>
                 </motion.div>

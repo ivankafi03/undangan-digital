@@ -55,7 +55,7 @@ export default function OrderStep() {
                         {/* Vertical Line */}
                         <div className="absolute left-[27px] top-8 bottom-8 w-[2px] bg-gray-200 z-0 hidden lg:block" />
 
-                        <div className="space-y-6 lg:space-y-0 z-10">
+                        <div className="space-y-2 lg:space-y-0 z-10">
                             {steps.map((step, index) => {
                                 const isActive = activeStep === step.id;
                                 const isPast = activeStep > step.id;
@@ -64,19 +64,19 @@ export default function OrderStep() {
                                     <div 
                                         key={step.id}
                                         onClick={() => setActiveStep(step.id)}
-                                        className={`flex items-start gap-5 p-4 lg:p-6 rounded-3xl cursor-pointer transition-all duration-300 ${
+                                        className={`flex items-start gap-3 sm:gap-5 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 ${
                                             isActive ? "bg-white shadow-xl shadow-sky-500/5 border border-sky-100 scale-[1.02]" : "hover:bg-gray-50"
                                         }`}
                                     >
-                                        <div className={`w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 border-4 border-[#FAFAFA] transition-colors duration-500 z-10 ${
+                                        <div className={`w-9 h-9 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 border-2 sm:border-4 border-[#FAFAFA] transition-colors duration-500 z-10 ${
                                             isActive ? "bg-sky-500 text-white shadow-md shadow-sky-500/30" : 
                                             isPast ? "bg-gray-900 text-white" : "bg-white text-gray-400 border-gray-100"
                                         }`}>
-                                            <span className="text-lg font-bold">{step.id}</span>
+                                            <span className="text-sm sm:text-lg font-bold">{step.id}</span>
                                         </div>
                                         
-                                        <div className="pt-2">
-                                            <h3 className={`text-xl font-bold mb-2 transition-colors ${isActive ? "text-gray-900" : "text-gray-500"}`}>
+                                        <div className="pt-1 sm:pt-2">
+                                            <h3 className={`text-sm sm:text-xl font-bold mb-1 sm:mb-2 transition-colors ${isActive ? "text-gray-900" : "text-gray-500"}`}>
                                                 {step.title}
                                             </h3>
                                             <AnimatePresence>
@@ -85,7 +85,7 @@ export default function OrderStep() {
                                                         initial={{ opacity: 0, height: 0 }}
                                                         animate={{ opacity: 1, height: "auto" }}
                                                         exit={{ opacity: 0, height: 0 }}
-                                                        className="text-gray-500 text-sm leading-relaxed"
+                                                        className="text-gray-500 text-xs sm:text-sm leading-relaxed"
                                                     >
                                                         {step.desc}
                                                     </motion.p>
@@ -107,26 +107,26 @@ export default function OrderStep() {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                                 transition={{ duration: 0.4, type: "spring", stiffness: 200, damping: 20 }}
-                                className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative group"
+                                className="bg-white rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 border border-gray-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative group"
                             >
                                 {/* Background Batik Pattern */}
                                 <div className="absolute inset-0 z-0 opacity-[0.35] bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }}></div>
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/40 to-transparent z-0"></div>
 
                                 <div className="relative z-10">
-                                    <div className="w-16 h-16 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center mb-8 shadow-inner">
+                                    <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center mb-4 sm:mb-8 shadow-inner [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-8 sm:[&>svg]:h-8">
                                         {steps[activeStep - 1].icon}
                                     </div>
                                     
-                                    <h3 className="text-3xl font-extrabold text-gray-900 mb-4">
+                                    <h3 className="text-lg sm:text-3xl font-extrabold text-gray-900 mb-2 sm:mb-4">
                                         Langkah {activeStep}: {steps[activeStep - 1].title}
                                     </h3>
                                     
-                                    <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                                    <p className="text-gray-600 text-xs sm:text-lg leading-relaxed mb-4 sm:mb-8">
                                         {steps[activeStep - 1].desc}
                                     </p>
 
-                                    <div className="w-full mt-4 flex justify-center bg-gray-50/50 rounded-3xl p-6 border border-gray-100 shadow-inner">
+                                    <div className="w-full mt-4 flex justify-center bg-gray-50/50 rounded-xl sm:rounded-3xl p-3 sm:p-6 border border-gray-100 shadow-inner">
                                         <AnimatedIllustration step={activeStep} />
                                     </div>
                                 </div>

@@ -189,7 +189,7 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                 <AnimatePresence>
                 {selected && (
                     <div
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-gray-900/40 backdrop-blur-md"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-gray-900/40 backdrop-blur-md"
                         onClick={handleCloseModal}
                     >
                         <motion.div
@@ -197,57 +197,57 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.3, type: "spring", damping: 25 }}
-                            className="relative bg-[#FAFAFA] w-full max-w-4xl rounded-[2.5rem] md:rounded-[3rem] overflow-hidden flex flex-col md:flex-row max-h-[95vh] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]"
+                            className="relative bg-[#FAFAFA] w-full max-w-4xl rounded-2xl sm:rounded-[3rem] overflow-hidden flex flex-col md:flex-row max-h-[92vh] sm:max-h-[95vh] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)]"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Complex Kawung Batik Watermark (Full Modal) */}
                             <div className="absolute inset-0 z-0 opacity-[0.35] pointer-events-none bg-repeat" style={{ backgroundImage: "url('/batik-complex.svg')" }} />
 
-                            {/* Modal Image */}
-                            <div className="w-full md:w-1/2 p-2 hidden md:block relative z-10">
-                                <div className="w-full h-full bg-gray-100 rounded-[2.5rem] overflow-hidden relative shadow-inner">
+                            {/* Modal Image (Top on mobile, Left on desktop) */}
+                            <div className="w-full md:w-1/2 p-2 block relative z-10">
+                                <div className="w-full h-40 sm:h-48 md:h-full bg-gray-100 rounded-xl md:rounded-[2.5rem] overflow-hidden relative shadow-inner">
                                     <img
                                         src={selected.gambar.startsWith('http') ? selected.gambar : `/storage/${selected.gambar}`}
                                         alt={selected.nama_tema}
                                         className="w-full h-full object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-8">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-4 md:p-8">
                                         <a
                                             href={selected.link_demo}
                                             target="_blank"
-                                            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all"
+                                            className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-gray-900 transition-all"
                                         >
-                                            <ExternalLink className="w-4 h-4" /> Buka Live Demo
+                                            <ExternalLink className="w-3.5 h-3.5" /> Buka Live Demo
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Modal Content */}
-                            <div className="flex-1 p-8 md:p-12 flex flex-col overflow-y-auto relative bg-transparent z-10">
+                            <div className="flex-1 p-5 sm:p-8 md:p-12 flex flex-col overflow-y-auto relative bg-transparent z-10">
                                 <div className="relative z-10 flex flex-col h-full">
                                     <button
                                         onClick={handleCloseModal}
-                                        className="absolute top-0 right-0 w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-400 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                                        className="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-100 text-gray-400 hover:bg-gray-50 hover:text-gray-900 transition-colors z-20"
                                     >
-                                        <X className="w-5 h-5" />
+                                        <X className="w-4 h-4 sm:w-5 sm:h-5" />
                                     </button>
 
-                                    <div className="mb-8 pr-12 pt-4">
-                                        <span className="inline-block px-4 py-1.5 bg-sky-100 text-sky-700 text-[10px] font-black rounded-full uppercase tracking-widest mb-4 border border-sky-200/50 shadow-sm">
+                                    <div className="mb-4 sm:mb-8 pr-10 sm:pr-12 pt-1 sm:pt-4">
+                                        <span className="inline-block px-3 py-1 bg-sky-100 text-sky-700 text-[8px] sm:text-[10px] font-black rounded-full uppercase tracking-widest mb-2 sm:mb-4 border border-sky-200/50 shadow-sm">
                                             {selected.kategori}
                                         </span>
-                                        <h3 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-600 mb-3 tracking-tight leading-none drop-shadow-sm">{selected.nama_tema}</h3>
+                                        <h3 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-600 mb-1 sm:mb-3 tracking-tight leading-none drop-shadow-sm">{selected.nama_tema}</h3>
                                     </div>
 
-                                <div className="mb-10 py-6 border-y border-gray-100">
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Harga Spesial</p>
-                                    <div className="flex items-baseline gap-4">
-                                        <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
+                                <div className="mb-4 sm:mb-10 py-3 sm:py-6 border-y border-gray-100">
+                                    <p className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-3">Harga Spesial</p>
+                                    <div className="flex items-baseline gap-2 sm:gap-4">
+                                        <span className="text-2xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600">
                                             {formatPrice(hargaAktif(selected))}
                                         </span>
                                         {selected.harga_diskon && (
-                                            <span className="text-lg text-gray-400 line-through font-medium">
+                                            <span className="text-xs sm:text-lg text-gray-400 line-through font-medium">
                                                 {formatPrice(selected.harga_asli)}
                                             </span>
                                         )}
@@ -262,20 +262,20 @@ export default function Catalog({ temas, waNumber }: { temas: Tema[], waNumber: 
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                className="space-y-3"
+                                                className="space-y-2"
                                             >
                                                 <button
                                                     onClick={() => setIsOrdering(true)}
-                                                    className="w-full py-4 bg-[#111111] text-white text-sm font-bold uppercase tracking-widest rounded-2xl hover:bg-sky-500 hover:shadow-xl hover:shadow-sky-500/20 transition-all duration-300"
+                                                    className="w-full py-3 sm:py-4 bg-[#111111] text-white text-xs sm:text-sm font-bold uppercase tracking-widest rounded-xl sm:rounded-2xl hover:bg-sky-500 hover:shadow-xl hover:shadow-sky-500/20 transition-all duration-300"
                                                 >
                                                     Pesan Tema Ini
                                                 </button>
                                                 <a
                                                     href={selected.link_demo}
                                                     target="_blank"
-                                                    className="md:hidden flex items-center justify-center gap-2 w-full py-4 bg-gray-50 text-gray-900 text-sm font-bold uppercase tracking-widest rounded-2xl border border-gray-200"
+                                                    className="md:hidden flex items-center justify-center gap-1.5 w-full py-3 bg-gray-50 text-gray-900 text-xs font-bold uppercase tracking-widest rounded-xl border border-gray-200"
                                                 >
-                                                    <ExternalLink className="w-4 h-4" /> Live Demo
+                                                    <ExternalLink className="w-3.5 h-3.5" /> Live Demo
                                                 </a>
                                             </motion.div>
                                         ) : (
