@@ -10,8 +10,8 @@ export default function PushPrompt() {
     const [status, setStatus] = useState<"prompt" | "loading" | "success" | "denied">("prompt");
 
     useEffect(() => {
-        // 1. Check if user already dismissed it this session
-        const dismissed = sessionStorage.getItem("push_prompt_dismissed");
+        // 1. Check if user already dismissed it
+        const dismissed = localStorage.getItem("push_prompt_dismissed");
         if (dismissed === "true") return;
 
         // 2. Check if push is supported & user is already subscribed
@@ -29,10 +29,10 @@ export default function PushPrompt() {
             return;
         }
 
-        // 3. Slide in after 5 seconds
+        // 3. Slide in after 25 seconds (less intrusive, targeting engaged users)
         const timer = setTimeout(() => {
             setIsVisible(true);
-        }, 5000);
+        }, 25000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -66,7 +66,7 @@ export default function PushPrompt() {
                 }
             } else if (permission === "denied") {
                 setStatus("denied");
-                sessionStorage.setItem("push_prompt_dismissed", "true");
+                localStorage.setItem("push_prompt_dismissed", "true");
                 setTimeout(() => {
                     setIsVisible(false);
                 }, 3000);
@@ -82,7 +82,7 @@ export default function PushPrompt() {
 
     const handleDismiss = () => {
         setIsVisible(false);
-        sessionStorage.setItem("push_prompt_dismissed", "true");
+        localStorage.setItem("push_prompt_dismissed", "true");
     };
 
     return (
@@ -106,18 +106,18 @@ export default function PushPrompt() {
                     {status === "prompt" && (
                         <div className="space-y-3">
                             <div className="flex items-center gap-2.5">
-                                <div className="w-8 h-8 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 animate-pulse">
+                                <div className="w-8 h-8 rounded-xl bg-sky-50/10 border border-sky-50/20 text-sky-400 flex items-center justify-center flex-shrink-0 animate-pulse">
                                     <Bell className="w-4 h-4" />
                                 </div>
                                 <div>
                                     <span className="block text-[9px] font-bold text-sky-400 uppercase tracking-wider">
-                                        Info Promo
+                                        Info & Update
                                     </span>
                                     <h4 className="text-xs font-black tracking-tight">Aktifkan Notifikasi?</h4>
                                 </div>
                             </div>
                             <p className="text-[10.5px] text-slate-400 leading-relaxed">
-                                Dapatkan info rilis tema terbaru dan diskon kilat langsung di layar HP/Laptop Anda!
+                                Dapatkan info rilis tema terbaru dan kabar update penting langsung di layar perangkat Anda!
                             </p>
                             <div className="flex gap-2 pt-0.5">
                                 <button

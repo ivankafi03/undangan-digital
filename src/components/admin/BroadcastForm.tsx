@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Send, Bell, Phone, CheckCircle, AlertTriangle, Monitor, Sparkles } from "lucide-react";
 
 export default function BroadcastForm({ initialSubscribers }: { initialSubscribers: number }) {
-    const [title, setTitle] = useState("PROMO SPESIAL FIKADIGI!");
-    const [message, setMessage] = useState("Dapatkan diskon 50% untuk rilis tema teranyar hari ini. Buruan pesan sekarang sebelum kehabisan!");
+    const [title, setTitle] = useState("Update FikaDigi: Tema Baru Tersedia ✨");
+    const [message, setMessage] = useState("Kami baru saja merilis tema undangan digital terbaru yang modern dan elegan. Yuk, lihat katalog kami untuk detail selengkapnya.");
     const [url, setUrl] = useState("/#katalog");
     
     const [loading, setLoading] = useState(false);
@@ -36,8 +36,8 @@ export default function BroadcastForm({ initialSubscribers }: { initialSubscribe
                     text: `Berhasil mengirim broadcast ke ${data.sentCount} perangkat! (Gagal: ${data.failedCount || 0})`
                 });
                 // Reset form on success
-                setTitle("PROMO SPESIAL FIKADIGI!");
-                setMessage("Dapatkan diskon 50% untuk rilis tema teranyar hari ini. Buruan pesan sekarang sebelum kehabisan!");
+                setTitle("Update FikaDigi: Tema Baru Tersedia ✨");
+                setMessage("Kami baru saja merilis tema undangan digital terbaru yang modern dan elegan. Yuk, lihat katalog kami untuk detail selengkapnya.");
                 setUrl("/#katalog");
             } else {
                 setStatus({

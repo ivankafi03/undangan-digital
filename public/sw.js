@@ -3,7 +3,7 @@ self.addEventListener('push', function (event) {
     try {
       const data = event.data.json();
       const options = {
-        body: data.body || 'Ada info promo terbaru dari FikaDigi!',
+        body: data.body || 'Ada update terbaru dari FikaDigi!',
         icon: data.icon || '/icon.jpg',
         badge: '/icon.jpg',
         vibrate: [100, 50, 100],
@@ -12,7 +12,7 @@ self.addEventListener('push', function (event) {
         }
       };
       event.waitUntil(
-        self.registration.showNotification(data.title || 'Info FikaDigi', options)
+        self.registration.showNotification(data.title || 'FikaDigi', options)
       );
     } catch (e) {
       // Fallback if data is not JSON
@@ -27,7 +27,7 @@ self.addEventListener('push', function (event) {
         }
       };
       event.waitUntil(
-        self.registration.showNotification('Info FikaDigi', options)
+        self.registration.showNotification('FikaDigi', options)
       );
     }
   }
