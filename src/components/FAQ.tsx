@@ -41,7 +41,8 @@ export default function FAQ() {
                         <div key={i} className="border-b border-gray-100">
                             <button
                                 onClick={() => setOpen(open === i ? null : i)}
-                                className="w-full flex items-center justify-between py-4 sm:py-6 text-left group"
+                                style={{ touchAction: "manipulation" }}
+                                className="w-full flex items-center justify-between py-4 sm:py-6 text-left group select-none active:opacity-70 transition-opacity"
                             >
                                 <span className={`text-sm sm:text-lg md:text-xl font-semibold transition-colors duration-300 ${open === i ? "text-sky-600" : "text-gray-800 group-hover:text-gray-500"}`}>
                                     {faq.q}
@@ -58,7 +59,8 @@ export default function FAQ() {
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        transition={{ duration: 0.2, ease: "easeOut" }}
+                                        style={{ willChange: "height, opacity" }}
                                         className="overflow-hidden"
                                     >
                                         <p className="pb-4 sm:pb-8 text-xs sm:text-base md:text-lg text-gray-500 leading-relaxed font-light pr-4 sm:pr-8">

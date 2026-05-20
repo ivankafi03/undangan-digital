@@ -63,8 +63,17 @@ export default function OrderStep() {
                                 return (
                                     <div 
                                         key={step.id}
+                                        role="button"
+                                        tabIndex={0}
                                         onClick={() => setActiveStep(step.id)}
-                                        className={`relative overflow-hidden flex items-start gap-3 sm:gap-5 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer transition-all duration-300 ${
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                setActiveStep(step.id);
+                                            }
+                                        }}
+                                        style={{ touchAction: "manipulation" }}
+                                        className={`relative overflow-hidden flex items-start text-left w-full gap-3 sm:gap-5 p-3 sm:p-4 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer select-none active:scale-[0.99] transition-all duration-200 ${
                                             isActive ? "bg-white shadow-xl shadow-sky-500/5 border border-sky-100 scale-[1.02]" : "hover:bg-gray-50"
                                         }`}
                                     >
@@ -83,7 +92,7 @@ export default function OrderStep() {
                                             <span className="text-sm sm:text-lg font-bold">{step.id}</span>
                                         </div>
                                         
-                                        <div className="pt-1 sm:pt-2 z-10 relative">
+                                        <div className="pt-1 sm:pt-2 z-10 relative flex-1">
                                             <h3 className={`text-sm sm:text-xl font-bold mb-1 sm:mb-2 transition-colors ${isActive ? "text-gray-900" : "text-gray-500"}`}>
                                                 {step.title}
                                             </h3>
@@ -93,6 +102,8 @@ export default function OrderStep() {
                                                         initial={{ opacity: 0, height: 0 }}
                                                         animate={{ opacity: 1, height: "auto" }}
                                                         exit={{ opacity: 0, height: 0 }}
+                                                        transition={{ duration: 0.2, ease: "easeOut" }}
+                                                        style={{ willChange: "height, opacity" }}
                                                         className="text-gray-500 text-xs sm:text-sm leading-relaxed"
                                                     >
                                                         {step.desc}
