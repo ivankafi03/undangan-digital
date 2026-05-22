@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Tracker from "@/components/Tracker";
 import PushPrompt from "@/components/PushPrompt";
 
@@ -16,6 +17,7 @@ export default async function PublicLayout({
             <Tracker />
             <Navbar waNumber={waNumber} setting={setting} />
             {children}
+            <Footer waNumber={waNumber} setting={setting} />
             <PushPrompt />
         </>
     );

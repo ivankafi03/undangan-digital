@@ -40,13 +40,9 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                     <Link 
                         href="/" 
                         className="flex items-center gap-2.5 group relative"
-                        onMouseEnter={() => setLogoHovered(true)}
-                        onMouseLeave={() => setLogoHovered(false)}
-                        onTouchStart={() => setLogoHovered(true)}
-                        onTouchEnd={() => setLogoHovered(false)}
                     >
                         <motion.div 
-                            animate={{ rotate: logoHovered ? 360 : 0 }}
+                            animate={{ rotate: scrolled ? 360 : 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="w-9 h-9 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
                         >
@@ -59,7 +55,7 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                         
                         <div className="relative overflow-hidden h-6 flex items-center select-none">
                             <AnimatePresence mode="wait">
-                                {!logoHovered ? (
+                                {!scrolled ? (
                                     <motion.span
                                         key="brand"
                                         initial={{ y: 20, opacity: 0 }}
@@ -79,8 +75,8 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                                         transition={{ duration: 0.35, ease: "easeOut" }}
                                         className="font-black text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
                                     >
-                                        <span className="hidden sm:inline">Jasa Pembuatan Website Digital</span>
-                                        <span className="inline sm:hidden">Jasa Web Digital</span>
+                                        <span className="hidden sm:inline">Jasa Pembuatan Undangan Digital</span>
+                                        <span className="inline sm:hidden">Jasa Undangan Digital</span>
                                     </motion.span>
                                 )}
                             </AnimatePresence>
