@@ -11,6 +11,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "FikaDigi - Undangan Digital Premium",
   description: "Layanan pembuatan undangan digital profesional, instan, dan elegan untuk segala momen bahagia bersama FikaDigi.",
+  verification: {
+    google: "IWY6nYubfDxKpH2bahtyj0GVeEMjo_Omyn8l_Xz2_2c",
+  },
   openGraph: {
     title: "FikaDigi - Undangan Digital Premium",
     description: "Layanan pembuatan undangan digital profesional, instan, dan elegan untuk segala momen bahagia bersama FikaDigi.",

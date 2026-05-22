@@ -58,7 +58,9 @@ export async function loginMember(formData: FormData) {
     const password = (formData.get("password") as string).trim();
 
     // Intercept admin login for convenience
-    if (email === "admin@fikadigi.com" && password === "admin123") {
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    if (adminEmail && adminPassword && email === adminEmail && password === adminPassword) {
         const cookieStore = await cookies();
         cookieStore.set("admin_session", "authenticated", {
             httpOnly: true,
