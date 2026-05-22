@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles, Megaphone } from "lucide-react";
+import { Menu, X, Sparkles, Megaphone, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ waNumber, setting }: { waNumber: string, setting?: any }) {
@@ -73,10 +73,9 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: 20, opacity: 0 }}
                                         transition={{ duration: 0.35, ease: "easeOut" }}
-                                        className="font-black text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
+                                        className="font-black text-[10px] xs:text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
                                     >
-                                        <span className="hidden sm:inline">Jasa Pembuatan Undangan Digital</span>
-                                        <span className="inline sm:hidden">Jasa Undangan Digital</span>
+                                        Jasa Pembuatan Undangan Digital
                                     </motion.span>
                                 )}
                             </AnimatePresence>
@@ -93,7 +92,7 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                     </div>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2.5 sm:gap-4">
                         <a
                             href={`https://wa.me/${waNumber}`}
                             target="_blank"
@@ -101,6 +100,16 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                         >
                             Konsultasi Gratis
                         </a>
+
+                        {/* Mobile Dashboard Member User Icon Button */}
+                        <Link 
+                            href="/member/dashboard" 
+                            className="md:hidden w-10 h-10 flex items-center justify-center text-[#111111] bg-gray-50 border border-gray-100 rounded-full hover:bg-[#F3F4F6] transition-all duration-300 shadow-sm"
+                            aria-label="Dashboard Member"
+                        >
+                            <User className="w-5 h-5 text-gray-700" />
+                        </Link>
+
                         <button onClick={() => setOpen(!open)} className="md:hidden w-10 h-10 flex items-center justify-center text-[#111111] rounded-full hover:bg-[#F3F4F6] transition-colors">
                             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                         </button>
