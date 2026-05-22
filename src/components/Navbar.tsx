@@ -39,12 +39,19 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                     {/* Logo */}
                     <Link 
                         href="/" 
-                        className="flex items-center gap-2.5 group relative"
+                        className="flex items-center group relative"
                     >
                         <motion.div 
-                            animate={{ rotate: scrolled ? 360 : 0 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="w-9 h-9 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
+                            animate={{ 
+                                rotate: scrolled ? 360 : 0,
+                                opacity: scrolled ? 0 : 1,
+                                width: scrolled ? 0 : 36,
+                                height: scrolled ? 0 : 36,
+                                scale: scrolled ? 0 : 1,
+                                marginRight: scrolled ? 0 : 10
+                            }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            className="rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
                         >
                             <img 
                                 src="/658080585_18042732272580949_1176413146137522839_n.jpg" 
@@ -53,7 +60,7 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                             />
                         </motion.div>
                         
-                        <div className="relative overflow-hidden h-6 flex items-center select-none">
+                        <div className="relative overflow-hidden h-7 flex items-center select-none">
                             <AnimatePresence mode="wait">
                                 {!scrolled ? (
                                     <motion.span
@@ -73,9 +80,12 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                                         animate={{ y: 0, opacity: 1 }}
                                         exit={{ y: 20, opacity: 0 }}
                                         transition={{ duration: 0.35, ease: "easeOut" }}
-                                        className="font-black text-[10px] xs:text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
+                                        className="font-black text-xs xs:text-sm sm:text-base md:text-lg tracking-tight whitespace-nowrap block"
                                     >
-                                        Jasa Pembuatan Undangan Digital
+                                        <span className="text-[#111111]">Jasa Pembuatan </span>
+                                        <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                                            Undangan Digital
+                                        </span>
                                     </motion.span>
                                 )}
                             </AnimatePresence>
@@ -92,7 +102,7 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                     </div>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-2.5 sm:gap-4">
+                    <div className="flex items-center gap-4">
                         <a
                             href={`https://wa.me/${waNumber}`}
                             target="_blank"
@@ -101,18 +111,20 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                             Konsultasi Gratis
                         </a>
 
-                        {/* Mobile Dashboard Member User Icon Button */}
-                        <Link 
-                            href="/member/dashboard" 
-                            className="md:hidden w-10 h-10 flex items-center justify-center text-[#111111] bg-gray-50 border border-gray-100 rounded-full hover:bg-[#F3F4F6] transition-all duration-300 shadow-sm"
-                            aria-label="Dashboard Member"
-                        >
-                            <User className="w-5 h-5 text-gray-700" />
-                        </Link>
+                        {/* Mobile User Icon & Hamburger aligned closely */}
+                        <div className="flex md:hidden items-center gap-1">
+                            <Link 
+                                href="/member/dashboard" 
+                                className="w-10 h-10 flex items-center justify-center text-gray-700 rounded-full hover:bg-gray-100/80 active:scale-90 transition-all duration-200"
+                                aria-label="Dashboard Member"
+                            >
+                                <User className="w-5 h-5" />
+                            </Link>
 
-                        <button onClick={() => setOpen(!open)} className="md:hidden w-10 h-10 flex items-center justify-center text-[#111111] rounded-full hover:bg-[#F3F4F6] transition-colors">
-                            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                        </button>
+                            <button onClick={() => setOpen(!open)} className="w-10 h-10 flex items-center justify-center text-[#111111] rounded-full hover:bg-gray-100/80 active:scale-90 transition-all duration-200">
+                                {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>
