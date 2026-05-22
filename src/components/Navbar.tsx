@@ -51,7 +51,7 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
                                 marginRight: scrolled ? 0 : 10
                             }}
                             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
+                            className="w-9 h-9 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
                         >
                             <img 
                                 src="/658080585_18042732272580949_1176413146137522839_n.jpg" 
