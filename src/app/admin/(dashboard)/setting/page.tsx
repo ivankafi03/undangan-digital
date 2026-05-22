@@ -1,11 +1,17 @@
 import prisma from "@/lib/prisma";
 import { updateSetting } from "@/app/actions/admin";
+import { getCurrentAdmin } from "@/app/actions/admin_security";
+import AdminSecurityForm from "@/components/admin/AdminSecurityForm";
 import { Save, Phone, Mail, Instagram, Facebook, MessageCircle, Presentation, Youtube, Megaphone } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
 export default async function SettingPage() {
     const setting = await prisma.setting.findFirst();
+    const currentAdmin = await getCurrentAdmin();
+    const invitations = await prisma.adminInvitation.findMany({
+        orderBy: { createdAt: "desc" },
+    });
 
     return (
         <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 pb-20">
@@ -137,7 +143,7 @@ export default async function SettingPage() {
                     </div>
                 </div>
 
-                <div className="pt-2 pb-10">
+                <div className="pt-2">
                     <button
                         type="submit"
                         className="flex items-center justify-center gap-2 w-full py-3 sm:py-5 bg-slate-900 text-white rounded-xl sm:rounded-3xl font-bold shadow-xl hover:bg-sky-500 transition transform hover:-translate-y-1 text-xs sm:text-lg"
@@ -147,6 +153,19 @@ export default async function SettingPage() {
                     </button>
                 </div>
             </form>
+
+            {/* Keamanan & Hak Akses Admin Section */}
+            <hr className="border-t-2 border-slate-100 my-8 sm:my-12" />
+
+            <div>
+                <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tighter">Keamanan & Admin</h1>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">Ubah kata sandi login dan kelola hak akses administrator website FikaDigi.</p>
+            </div>
+
+            <AdminSecurityForm 
+                initialInvitations={invitations} 
+                currentAdminEmail={currentAdmin?.email || "ivankafipradana@gmail.com"} 
+            />
         </div>
     );
 }

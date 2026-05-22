@@ -58,17 +58,26 @@ export async function loginMember(formData: FormData) {
     const password = (formData.get("password") as string).trim();
 
     // Intercept admin login for convenience
-    const adminEmail = process.env.ADMIN_EMAIL;
-    const adminPassword = process.env.ADMIN_PASSWORD;
-    if (adminEmail && adminPassword && email === adminEmail && password === adminPassword) {
-        const cookieStore = await cookies();
-        cookieStore.set("admin_session", "authenticated", {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            maxAge: 60 * 60 * 24 * 7, // 1 week
-            path: "/",
+    try {
+        const admin = await prisma.user.findFirst({
+            where: { email, role: "ADMIN" }
         });
-        redirect("/admin/dashboard");
+
+        if (admin && admin.password === hashPassword(password)) {
+            const cookieStore = await cookies();
+            cookieStore.set("admin_session", admin.id, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                maxAge: 60 * 60 * 24 * 7, // 1 week
+                path: "/",
+            });
+            redirect("/admin/dashboard");
+        }
+    } catch (e: any) {
+        if (e.message?.includes("NEXT_REDIRECT")) {
+            throw e;
+        }
+        console.error("Admin login intercept error:", e);
     }
 
     try {

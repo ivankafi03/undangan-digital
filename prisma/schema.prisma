@@ -91,3 +91,28 @@ model PushSubscription {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model AdminInvitation {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model PasswordChangeRequest {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  hashedPassword  String
+  token           String   @unique
+  createdAt       DateTime @default(now())
+  expiresAt       DateTime
+}

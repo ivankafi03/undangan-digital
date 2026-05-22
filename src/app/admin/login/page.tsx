@@ -77,9 +77,11 @@ export default function LoginPage({
                     </button>
                 </form>
 
-                <p className="text-center mt-8 text-slate-400 text-sm">
-                    Lupa password? Hubungi developer.
-                </p>
+                <div className="text-center mt-8">
+                    <a href="/admin/forgot-password" className="text-sky-500 hover:text-sky-600 font-bold text-sm transition-colors">
+                        Lupa sandi? Reset di sini ➜
+                    </a>
+                </div>
             </div>
         </div>
     );
