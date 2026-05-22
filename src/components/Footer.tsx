@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Instagram, MessageCircle, Mail, Facebook, Youtube, Presentation } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer({ waNumber, setting }: { waNumber: string, setting: any }) {
     const [email, setEmail] = useState("");
     const [isSubscribed, setIsSubscribed] = useState(false);
+    const [logoHovered, setLogoHovered] = useState(false);
 
     const navLinks = [
         { label: "Beranda", href: "/#home" },
@@ -28,17 +30,53 @@ export default function Footer({ waNumber, setting }: { waNumber: string, settin
             <div className="max-w-7xl mx-auto px-5 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16 pb-16 border-b border-white/5">
                     <div className="max-w-md">
-                        <div className="flex items-center gap-2.5 mb-6 group">
-                            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-white/10">
+                        <div 
+                            className="flex items-center gap-2.5 mb-6 group relative cursor-pointer select-none"
+                            onMouseEnter={() => setLogoHovered(true)}
+                            onMouseLeave={() => setLogoHovered(false)}
+                            onTouchStart={() => setLogoHovered(true)}
+                            onTouchEnd={() => setLogoHovered(false)}
+                        >
+                            <motion.div 
+                                animate={{ rotate: logoHovered ? 360 : 0 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                className="w-10 h-10 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-white/10 shrink-0"
+                            >
                                 <img 
                                     src="/658080585_18042732272580949_1176413146137522839_n.jpg" 
                                     alt="FikaDigi Logo" 
                                     className="w-full h-full object-cover"
                                 />
+                            </motion.div>
+                            
+                            <div className="relative overflow-hidden h-7 flex items-center">
+                                <AnimatePresence mode="wait">
+                                    {!logoHovered ? (
+                                        <motion.span
+                                            key="brand-footer"
+                                            initial={{ y: 20, opacity: 0 }}
+                                            animate={{ y: 0, opacity: 1 }}
+                                            exit={{ y: -20, opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: "easeOut" }}
+                                            className="font-black text-2xl text-white tracking-tight whitespace-nowrap block"
+                                        >
+                                            Fika<span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Digi</span>
+                                        </motion.span>
+                                    ) : (
+                                        <motion.span
+                                            key="tagline-footer"
+                                            initial={{ y: -20, opacity: 0 }}
+                                            animate={{ y: 0, opacity: 1 }}
+                                            exit={{ y: 20, opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: "easeOut" }}
+                                            className="font-black text-xs sm:text-sm bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
+                                        >
+                                            <span className="hidden sm:inline">Jasa Pembuatan Website Digital</span>
+                                            <span className="inline sm:hidden">Jasa Web Digital</span>
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
                             </div>
-                            <span className="font-black text-2xl text-white tracking-tight">
-                                Fika<span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Digi</span>
-                            </span>
                         </div>
                         <p className="text-gray-400 text-base leading-relaxed mb-8 font-light">
                             Platform pembuatan undangan digital premium yang dirancang untuk mengabadikan setiap detik momen istimewa Anda dengan keanggunan modern.

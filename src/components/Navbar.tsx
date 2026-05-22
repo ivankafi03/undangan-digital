@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar({ waNumber, setting }: { waNumber: string, setting?: any }) {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [logoHovered, setLogoHovered] = useState(false);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,17 +37,54 @@ export default function Navbar({ waNumber, setting }: { waNumber: string, settin
             <nav className={`fixed ${showPromo ? "top-8 sm:top-9" : "top-0"} left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/70 backdrop-blur-xl border-b border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.03)]" : "bg-transparent"}`}>
                 <div className="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2.5 group">
-                        <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md group-hover:shadow-lg transition-all flex items-center justify-center border border-gray-100">
+                    <Link 
+                        href="/" 
+                        className="flex items-center gap-2.5 group relative"
+                        onMouseEnter={() => setLogoHovered(true)}
+                        onMouseLeave={() => setLogoHovered(false)}
+                        onTouchStart={() => setLogoHovered(true)}
+                        onTouchEnd={() => setLogoHovered(false)}
+                    >
+                        <motion.div 
+                            animate={{ rotate: logoHovered ? 360 : 0 }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="w-9 h-9 rounded-xl overflow-hidden shadow-md flex items-center justify-center border border-gray-100 shrink-0"
+                        >
                             <img 
                                 src="/658080585_18042732272580949_1176413146137522839_n.jpg" 
                                 alt="FikaDigi Logo" 
                                 className="w-full h-full object-cover"
                             />
+                        </motion.div>
+                        
+                        <div className="relative overflow-hidden h-6 flex items-center select-none">
+                            <AnimatePresence mode="wait">
+                                {!logoHovered ? (
+                                    <motion.span
+                                        key="brand"
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -20, opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: "easeOut" }}
+                                        className="font-black text-xl text-[#111111] tracking-tight whitespace-nowrap block"
+                                    >
+                                        Fika<span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">Digi</span>
+                                    </motion.span>
+                                ) : (
+                                    <motion.span
+                                        key="tagline"
+                                        initial={{ y: -20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: 20, opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: "easeOut" }}
+                                        className="font-black text-xs sm:text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent tracking-tight whitespace-nowrap block"
+                                    >
+                                        <span className="hidden sm:inline">Jasa Pembuatan Website Digital</span>
+                                        <span className="inline sm:hidden">Jasa Web Digital</span>
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
                         </div>
-                        <span className="font-black text-xl text-[#111111] tracking-tight transition-colors">
-                            Fika<span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">Digi</span>
-                        </span>
                     </Link>
 
                     {/* Desktop Nav */}
